@@ -30,7 +30,7 @@ public class HelloWorld extends ActionSupport {
 
     public String execute() throws Exception {
         setMessage(getText(MESSAGE));
-        return SUCCESS;
+        return SUCCESS; 
     }
 
     /**
