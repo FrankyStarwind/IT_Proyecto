@@ -29,7 +29,7 @@ public class actividadesDAO {
         return u;
     }
 
-    public List consultaTodosUsuarios() {
+    public List<Usuario> consultaTodosUsuarios() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Usuario");
@@ -38,7 +38,7 @@ public class actividadesDAO {
         return lista;
     }
 
-    public List busquedaUsuarioPorDni(String dni) {
+    public List<Usuario> busquedaUsuarioPorDni(String dni) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Usuario where dni='" + dni + "'");

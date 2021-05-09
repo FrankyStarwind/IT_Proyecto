@@ -21,17 +21,49 @@ import java.util.Set;
 public class controlador {
 
     //VARIABLES DE USUARIO    
-    String userName, password, nombre, apellidos, dni, email, tlf;
-    double admin;
-    Set reservas;
+    private String userName, password, nombre, apellidos, dni, email, tlf;
+    private double admin;
+    private Set reservas;
 
     //VARIABLES GENERALES
-    List lista = new ArrayList();
-    actividadesDAO A = new actividadesDAO();
+    List<Usuario> lista = new ArrayList<Usuario>();    
+    private actividadesDAO A = new actividadesDAO();
     Usuario usu = new Usuario();
     Map session = (Map) ActionContext.getContext().get("session");
 
     public controlador() {
+    }
+
+    public List<Usuario> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Usuario> lista) {
+        this.lista = lista;
+    }
+
+    public actividadesDAO getA() {
+        return A;
+    }
+
+    public void setA(actividadesDAO A) {
+        this.A = A;
+    }
+
+    public Usuario getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usuario usu) {
+        this.usu = usu;
+    }
+
+    public Map getSession() {
+        return session;
+    }
+
+    public void setSession(Map session) {
+        this.session = session;
     }
 
     public String getUserName() {

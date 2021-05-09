@@ -13,6 +13,8 @@
         <title>ACTIVIDADES DEPORTIVAS</title>
     </head>
     <body>
+        <!-- Terminar tabla con operaciones CRUD de Usuario -->
+        <!-- Buscar por dni y Editar -->
         <h1>MIS DATOS</h1>
         <table border="2">
             <tr align="center">
@@ -23,11 +25,10 @@
                 <td>Dni</td>
                 <td>Email</td>
                 <td>Telefono</td>
-                <td>Administrador</td>
-                <td>Reservas</td>   
+                <td>Administrador</td>                   
             </tr>
             <s:iterator value="lista">
-                <tr>
+                <tr align="center">
                     <td><s:property value="userName"></s:property></td>
                     <td><s:property value="password"></s:property></td>
                     <td><s:property value="nombre"></s:property></td>
@@ -35,10 +36,16 @@
                     <td><s:property value="dni"></s:property></td>
                     <td><s:property value="email"></s:property></td>
                     <td><s:property value="tlf"></s:property></td>
-                    <td><s:property value="admin"></s:property></td>
-                    <td><s:property value="reservas"></s:property></td>   
-                    </tr>
+                    <s:if test="admin != 0">
+                        <td>Sí</td>                              
+                    </s:if>
+                    <s:else>
+                        <td>No</td>
+                    </s:else>                                       
+                </tr>
             </s:iterator>
         </table>
+        <br><a href="<s:url action="volverIndex"/>">Principal</a>
+
     </body>
 </html>

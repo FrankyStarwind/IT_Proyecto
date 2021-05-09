@@ -22,7 +22,11 @@
 
                 <li><a href="<s:url action="misDatos">
                            <s:param name="dni" value="%{#session.dni}"></s:param>
-                       </s:url>">Ver Mis Datos</a></li>
+                       </s:url>">Mis Datos</a></li>
+                
+                <!-- Aquí puede ir Reservas y mostrar listado con las reservas del usuario
+                 y las operaciones CRUD de reservas -->
+                
                 <li><a href="<s:url action="inicio">
                            <s:param name="dni" value="%{#session.dni}"></s:param>
                        </s:url>">Logout</a></li>

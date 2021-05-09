@@ -13,8 +13,7 @@
         <title>ACTIVIDADES DEPORTIVAS</title>
     </head>
     <body>
-        <h1>Actividades Deportivas</h1>
-        <h2>Página Principal</h2>
+        <h1>Actividades Deportivas - Página Principal</h1>
         <%@include file="/vista/login.jsp" %>
     </body>
 </html>
