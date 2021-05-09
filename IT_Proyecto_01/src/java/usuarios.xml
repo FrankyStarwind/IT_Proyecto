@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Laura -->
+ 
+<struts>
+    <package name="usuarios" extends="struts-default">        
+        <action name="indexUsuarios" class="actividades.Actions.controlador" >
+            <result name="success">/vista/indexUsuarios.jsp</result>
+        </action>        
+        <action name="misDatos" class="actividades.Actions.controlador" method="visualizarUsuario" >
+            <result name="success">/vista/visualizarUsuario.jsp</result>
+        </action> 
+    </package>
+</struts>

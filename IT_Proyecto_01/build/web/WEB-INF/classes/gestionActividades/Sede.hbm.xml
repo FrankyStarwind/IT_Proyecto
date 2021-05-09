@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2021 10:30:33 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="gestionActividades.Sede" table="sede" catalog="db_proyecto" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="150" not-null="true" />
+        </property>
+        <property name="cp" type="int">
+            <column name="cp" not-null="true" />
+        </property>
+        <property name="tlf" type="int">
+            <column name="tlf" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" />
+        </property>
+        <property name="provincia" type="int">
+            <column name="provincia" not-null="true" />
+        </property>
+        <set name="actividads" table="actividad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSedeFK" not-null="true" />
+            </key>
+            <one-to-many class="gestionActividades.Actividad" />
+        </set>
+    </class>
+</hibernate-mapping>

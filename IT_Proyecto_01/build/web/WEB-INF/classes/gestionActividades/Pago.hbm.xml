@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2021 10:30:33 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="gestionActividades.Pago" table="pago" catalog="db_proyecto" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="metodoPago" type="string">
+            <column name="metodoPago" length="100" not-null="true" />
+        </property>
+        <property name="importe" type="double">
+            <column name="importe" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="pagado" type="double">
+            <column name="pagado" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true" />
+        </property>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPagoFK" not-null="true" />
+            </key>
+            <one-to-many class="gestionActividades.Reserva" />
+        </set>
+    </class>
+</hibernate-mapping>
