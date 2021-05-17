@@ -17,28 +17,6 @@
     </head>  
     <body>
 
-<<<<<<< Updated upstream
-                <li><a href="<s:url action="misDatos">
-                           <s:param name="dni" value="%{#session.dni}"></s:param>
-                       </s:url>">Mis Datos</a></li>
-                
-                <!-- Aquí puede ir Reservas y mostrar listado con las reservas del usuario
-                 y las operaciones CRUD de reservas -->
-                
-                <li><a href="<s:url action="inicio">
-                           <s:param name="dni" value="%{#session.dni}"></s:param>
-                       </s:url>">Logout</a></li>
-            </ul>
-        </s:if>
-        <s:else>
-            <h2>Bienvenido a la Vista de Administrador: <s:property value="#session.administrador" /></h2>
-            <!-- Listado con enlaces de acciones de usuarios-->
-            <ul>
-                <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
-                <li><a href="<s:url action="logout"/>">Logout</a></li>
-            </ul>
-        </s:else>
-=======
         <!-- Wrapper -->
         <div id="wrapper">
 
@@ -93,6 +71,5 @@
         </div>
         <!-- Scripts -->
         <%@include file="includes/include_scripts.jsp" %>
->>>>>>> Stashed changes
     </body>
 </html>

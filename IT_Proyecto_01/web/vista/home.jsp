@@ -10,12 +10,6 @@
 <html>
     <head>
         <title>ACTIVIDADES DEPORTIVAS</title>
-<<<<<<< Updated upstream
-    </head>
-    <body>
-        <h1>Actividades Deportivas - Página Principal</h1>
-        <%@include file="/vista/login.jsp" %>
-=======
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
         <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
@@ -65,6 +59,5 @@
         <%@include file="includes/include_scripts.jsp" %>
         
 
->>>>>>> Stashed changes
     </body>
 </html>

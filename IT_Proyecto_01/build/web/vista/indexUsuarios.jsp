@@ -16,9 +16,6 @@
         <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
     </head>  
     <body>
-<<<<<<< Updated upstream
-        <h1>Visualizar Usuarios</h1>
-=======
 
         <!-- Wrapper -->
         <div id="wrapper">
@@ -32,7 +29,6 @@
 
                     <!-- Section --> 
         <h1>Listado de Usuarios</h1>
->>>>>>> Stashed changes
         <!-- Terminar tabla con operaciones CRUD de Usuario -->
         <!-- Insertar, Borrar, Editar y Buscar-->
 
@@ -63,11 +59,6 @@
                         <td>No</td>
                     </s:else>                                                   
                 </tr>
-<<<<<<< Updated upstream
-            </s:iterator>            
-        </table>
-        <br><a href="<s:url action="volverIndex"/>">Principal</a>
-=======
             </s:iterator>
                     </table>
                 </div>
@@ -99,6 +90,5 @@
         <%@include file="includes/include_scripts.jsp" %>
 
 
->>>>>>> Stashed changes
     </body>
 </html>

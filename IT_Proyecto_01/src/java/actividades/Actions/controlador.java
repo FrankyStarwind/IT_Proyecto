@@ -27,11 +27,7 @@ public class controlador extends ActionSupport{
     private Set reservas;
 
     //VARIABLES GENERALES
-<<<<<<< Updated upstream
-    List<Usuario> lista = new ArrayList<Usuario>();    
-=======
     List<Usuario> lista = new ArrayList<>();    
->>>>>>> Stashed changes
     private actividadesDAO A = new actividadesDAO();
     Usuario usu = new Usuario();
     Map session = (Map) ActionContext.getContext().get("session");
