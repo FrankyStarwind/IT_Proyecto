@@ -6,14 +6,17 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<nav id="menu">
-    <header class="major">
-        <h2>Menu</h2>
-    </header>
+<!DOCTYPE html>
+<html>
+    <head>
+    <h2>Menu</h2>
+</head>
+<body>
     <ul>
         <li><a href="<s:url action="home"/>">Inicio</a></li>
         <li><a href="<s:url action="contacto"/>">Contactanos</a></li>
         <li><a href="<s:url action="areaUsuario"/>">Area Usuarios</a></li>
         <li><a href="<s:url action="mostrarActividades"/>">Actividades</a></li>
     </ul>
-</nav>
+</body>
+</html>
