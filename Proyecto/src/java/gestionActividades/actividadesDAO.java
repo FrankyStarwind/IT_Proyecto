@@ -49,13 +49,4 @@ public class actividadesDAO {
         return lista;
     }
 
-    public List<Usuario> consultaTodosPagos() {
-        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Pago");
-        List<Usuario> lista = (List<Usuario>) q1.list();
-        tx.commit();
-        return lista;
-    }
-
 }

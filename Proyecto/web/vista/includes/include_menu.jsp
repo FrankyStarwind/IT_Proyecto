@@ -6,14 +6,19 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<nav id="menu">
-    <header class="major">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ACTIVIDADES DEPORTIVAS</title>
+    </head>
+    <body>
         <h2>Menu</h2>
-    </header>
-    <ul>
-        <li><a href="<s:url action="home"/>">Inicio</a></li>
-        <li><a href="<s:url action="contacto"/>">Contactanos</a></li>
-        <li><a href="<s:url action="areaUsuario"/>">Area Usuarios</a></li>
-        <li><a href="<s:url action="mostrarActividades"/>">Actividades</a></li>
-    </ul>
-</nav>
+        <ul>
+            <li><a href="<s:url action="home"/>">Inicio</a></li>
+            <li><a href="<s:url action="contacto"/>">Contactanos</a></li>
+            <li><a href="<s:url action="areaUsuario"/>">Area Usuarios</a></li>
+            <li><a href="<s:url action="mostrarActividades"/>">Actividades</a></li>
+        </ul>
+    </body>
+</html>
