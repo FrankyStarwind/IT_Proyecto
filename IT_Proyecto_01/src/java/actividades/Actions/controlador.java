@@ -7,6 +7,7 @@ package actividades.Actions;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import gestionActividades.Usuario;
 import gestionActividades.actividadesDAO;
 import java.util.ArrayList;
@@ -18,15 +19,15 @@ import java.util.Set;
  *
  * @author Laura
  */
-public class controlador {
-
+public class controlador extends ActionSupport{
+    
     //VARIABLES DE USUARIO    
     private String userName, password, nombre, apellidos, dni, email, tlf;
     private double admin;
     private Set reservas;
 
     //VARIABLES GENERALES
-    List<Usuario> lista = new ArrayList<Usuario>();    
+    List<Usuario> lista = new ArrayList<>();    
     private actividadesDAO A = new actividadesDAO();
     Usuario usu = new Usuario();
     Map session = (Map) ActionContext.getContext().get("session");
@@ -138,6 +139,12 @@ public class controlador {
         this.reservas = reservas;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    @Override
     public String execute() throws Exception {
         //Consultamos y devolvemos una lista con todos los usuarios
         lista = A.consultaTodosUsuarios();
@@ -152,8 +159,8 @@ public class controlador {
     public String logout() throws Exception {
 
         //Dejamos las sesiones vacías
-        session.put("administrador", null);
-        session.put("usuario", null);
+        session.put("admin", null);
+        session.put("nombre", null);
 
         return SUCCESS;
     }

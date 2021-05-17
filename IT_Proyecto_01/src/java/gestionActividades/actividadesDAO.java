@@ -1,9 +1,11 @@
+package gestionActividades;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gestionActividades;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -42,6 +44,15 @@ public class actividadesDAO {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Usuario where dni='" + dni + "'");
+        List<Usuario> lista = (List<Usuario>) q1.list();
+        tx.commit();
+        return lista;
+    }
+
+    public List<Usuario> consultaTodosPagos() {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Pago");
         List<Usuario> lista = (List<Usuario>) q1.list();
         tx.commit();
         return lista;

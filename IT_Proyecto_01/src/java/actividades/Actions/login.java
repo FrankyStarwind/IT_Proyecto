@@ -6,20 +6,20 @@
 package actividades.Actions;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 import gestionActividades.Usuario;
 import gestionActividades.actividadesDAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import static java.util.jar.Pack200.Packer.ERROR;
 
 /**
  *
  * @author Laura
  */
-public class login {
-
+public class login extends ActionSupport{
+    
     Map session = (Map) ActionContext.getContext().get("session");
 
     private String password;
@@ -27,7 +27,7 @@ public class login {
     private String apellidos;
     private String dni;
     
-    List<Usuario> lista = new ArrayList<Usuario>();
+    List<Usuario> lista = new ArrayList<>();
     private actividadesDAO a = new actividadesDAO();
 
     public login() {
@@ -88,7 +88,7 @@ public class login {
                 session.put("usuario", null);
                 session.put("administrador", u.getNombre() + " " + u.getApellidos());
             }
-            if(u.getAdmin() == 0){ // si es administrador
+            if(u.getAdmin() == 0){ // si no es administrador
                 session.put("administrador", null);
                 session.put("usuario", u.getNombre() + " " + u.getApellidos());
             }

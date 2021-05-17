@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : 08-may-2021, 19:44:54
+    Created on : 16-may-2021, 10:44:15
     Author     : Laura
 --%>
 
@@ -9,36 +9,67 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ACTIVIDADES DEPORTIVAS</title>
-    </head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
+        <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
+    </head>  
     <body>
-        <h1>Actividades Deportivas</h1>
-        <!-- Comprobamos si es administrador-->
-        <s:if test="%{#session.usuario != null}">
-            <h2>Bienvenido a la Vista de Usuario: <s:property value="#session.usuario" /></h2>
-            <!-- Listado con enlaces de acciones de usuarios-->
-            <ul>
 
-                <li><a href="<s:url action="misDatos">
-                           <s:param name="dni" value="%{#session.dni}"></s:param>
-                       </s:url>">Mis Datos</a></li>
-                
-                <!-- Aquí puede ir Reservas y mostrar listado con las reservas del usuario
-                 y las operaciones CRUD de reservas -->
-                
-                <li><a href="<s:url action="inicio">
-                           <s:param name="dni" value="%{#session.dni}"></s:param>
-                       </s:url>">Logout</a></li>
-            </ul>
-        </s:if>
-        <s:else>
-            <h2>Bienvenido a la Vista de Administrador: <s:property value="#session.administrador" /></h2>
-            <!-- Listado con enlaces de acciones de usuarios-->
-            <ul>
-                <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
-                <li><a href="<s:url action="logout"/>">Logout</a></li>
-            </ul>
-        </s:else>
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+
+                    <!-- Header -->
+                    <%@include file="includes/include_header.jsp" %>                  
+
+                    <!-- Section -->
+
+                    <!-- Comprobamos el tipo de usuario-->
+                    <s:if test="%{#session.usuario != null}">
+                        <h2>Bienvenido <s:property value="#session.usuario" /></h2>
+                        <ul>
+                            <li><a href="<s:url action="pagos"><s:param name="dni" value="%{#session.dni}">
+                                       </s:param>
+                                   </s:url>">Ver Pagos</a></li>
+                            <li><a href="<s:url action="misDatos"><s:param name="dni" value="%{#session.dni}">
+                                       </s:param>
+                                   </s:url>">Ver Mis Datos</a></li>
+                            <li><a href="<s:url action="inicio"><s:param name="dni" value="%{#session.dni}">
+                                       </s:param>
+                                   </s:url>">Logout</a></li>
+                        </ul>
+                    </s:if>
+                    <s:else>
+                        <h2>Bienvenido a la Vista de Administrador: <s:property value="#session.administrador" /></h2>
+                        <ul>
+                            <li><a href="<s:url action="indexPagos"/>">Pagos</a></li>
+                            <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
+                            <li><a href="<s:url action="logout"/>">Logout</a></li>
+                        </ul>
+                    </s:else>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+                    <!-- Search -->
+                    <%@include file="includes/include_buscar.jsp" %>
+                    <!-- Menu -->
+                    <%@include file="includes/include_menu.jsp" %>
+                    <!-- Section -->
+                    <%@include file="includes/include_menu_section.jsp" %>
+                    <!-- Footer -->
+                    <%@include file="includes/include_footer.jsp" %>
+                </div>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <%@include file="includes/include_scripts.jsp" %>
     </body>
 </html>

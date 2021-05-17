@@ -3,8 +3,8 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <!-- Author: Laura -->
-
- <struts>
+ 
+<struts>
     <package name="login" extends="struts-default">
         <action name="login" class="actividades.Actions.login">
             <result name="success">/vista/index.jsp</result>

@@ -1,5 +1,5 @@
 package gestionActividades;
-// Generated 08-may-2021 10:30:32 by Hibernate Tools 4.3.1
+// Generated 16-may-2021 10:37:05 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

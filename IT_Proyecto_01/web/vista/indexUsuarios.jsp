@@ -1,6 +1,6 @@
 <%-- 
     Document   : indexUsuarios
-    Created on : 09-may-2021, 9:42:59
+    Created on : 16-may-2021, 10:45:22
     Author     : Laura
 --%>
 
@@ -9,11 +9,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ACTIVIDADES DEPORTIVAS</title>
-    </head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
+        <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
+    </head>  
     <body>
-        <h1>Visualizar Usuarios</h1>
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+
+                    <!-- Header -->
+                    <%@include file="includes/include_header.jsp" %>                  
+
+                    <!-- Section --> 
+        <h1>Listado de Usuarios</h1>
         <!-- Terminar tabla con operaciones CRUD de Usuario -->
         <!-- Insertar, Borrar, Editar y Buscar-->
 
@@ -44,8 +59,36 @@
                         <td>No</td>
                     </s:else>                                                   
                 </tr>
-            </s:iterator>            
-        </table>
-        <br><a href="<s:url action="volverIndex"/>">Principal</a>
+            </s:iterator>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+
+                    <!-- Search -->
+                    <%@include file="includes/include_buscar.jsp" %>
+
+                    <!-- Menu -->
+                    <%@include file="includes/include_menu.jsp" %>
+
+                    <!-- Section -->
+                    <%@include file="includes/include_menu_section.jsp" %>
+
+
+                    <!-- Footer -->
+                    <%@include file="includes/include_footer.jsp" %>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <%@include file="includes/include_scripts.jsp" %>
+
+
     </body>
 </html>
