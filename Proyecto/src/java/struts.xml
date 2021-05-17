@@ -19,6 +19,16 @@
             <result>/vista/home.jsp</result>  
         </action>
     </package>
+    <!--  <package name="contacto" extends="struts-default">
+        <action name="contacto">
+            <result>/vista/contacto.jsp</result>  
+        </action>
+        <action name="enviarContacto" class="actividades.Actions.email">
+            <result name="success">/vista/sucessEmail.jsp</result> 
+             <result name = "error">/vista/errorEmail.jsp</result> 
+        </action>
+    </package> -->
+   
     <package name="volverIndex" extends="struts-default">
         <action name="volverIndex">
             <result>/vista/index.jsp</result>  

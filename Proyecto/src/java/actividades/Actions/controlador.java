@@ -21,7 +21,7 @@ import java.util.Set;
  */
 public class controlador extends ActionSupport{
     
-       //VARIABLES DE USUARIO    
+    //VARIABLES DE USUARIO    
     private String userName, password, nombre, apellidos, dni, email, tlf;
     private double admin;
     private Set reservas;
