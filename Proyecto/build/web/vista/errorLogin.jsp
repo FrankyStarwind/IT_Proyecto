@@ -13,7 +13,7 @@
         <title>ACTIVIDADES DEPORTIVAS</title>
     </head>  
     <body>
-        <h1>Área Usuarios</h1>
+        <h1>Área Usuarios</h1> //Área usuarios
         <b style="color:red;">Usuario o Clave no son correctos</b>
         <s:form action="login">
             <s:textfield name="dni" label="DNI" />
