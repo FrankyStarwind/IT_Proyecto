@@ -41,12 +41,11 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="db_proyecto"/>
-  <table-filter match-name="reserva"/>
-  <table-filter match-name="usuario"/>
   <table-filter match-name="sede"/>
-  <table-filter match-name="deporte"/>
-  <table-filter match-name="actividad"/>
-  <table-filter match-name="pago"/>
   <table-filter match-name="equipo"/>
+  <table-filter match-name="pago"/>
+  <table-filter match-name="actividad"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="reserva"/>
   <table-filter match-name="jugador"/>
 </hibernate-reverse-engineering>

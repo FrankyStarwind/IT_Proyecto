@@ -1,5 +1,5 @@
 package gestionActividades;
-// Generated 08-may-2021 10:30:32 by Hibernate Tools 4.3.1
+// Generated 16-may-2021 10:37:05 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,7 +13,6 @@ public class Actividad  implements java.io.Serializable {
 
 
      private Integer id;
-     private Deporte deporte;
      private Equipo equipoByIdEquipoUnoFk;
      private Equipo equipoByIdEquipoDosFk;
      private Reserva reserva;
@@ -27,8 +26,7 @@ public class Actividad  implements java.io.Serializable {
     }
 
 	
-    public Actividad(Deporte deporte, Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk, Reserva reserva, Sede sede, String nombre, Date fecha, String hora) {
-        this.deporte = deporte;
+    public Actividad(Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk, Reserva reserva, Sede sede, String nombre, Date fecha, String hora) {
         this.equipoByIdEquipoUnoFk = equipoByIdEquipoUnoFk;
         this.equipoByIdEquipoDosFk = equipoByIdEquipoDosFk;
         this.reserva = reserva;
@@ -37,8 +35,7 @@ public class Actividad  implements java.io.Serializable {
         this.fecha = fecha;
         this.hora = hora;
     }
-    public Actividad(Deporte deporte, Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk, Reserva reserva, Sede sede, String nombre, Date fecha, String hora, Set equipos) {
-       this.deporte = deporte;
+    public Actividad(Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk, Reserva reserva, Sede sede, String nombre, Date fecha, String hora, Set equipos) {
        this.equipoByIdEquipoUnoFk = equipoByIdEquipoUnoFk;
        this.equipoByIdEquipoDosFk = equipoByIdEquipoDosFk;
        this.reserva = reserva;
@@ -55,13 +52,6 @@ public class Actividad  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
-    }
-    public Deporte getDeporte() {
-        return this.deporte;
-    }
-    
-    public void setDeporte(Deporte deporte) {
-        this.deporte = deporte;
     }
     public Equipo getEquipoByIdEquipoUnoFk() {
         return this.equipoByIdEquipoUnoFk;
