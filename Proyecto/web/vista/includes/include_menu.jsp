@@ -9,14 +9,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <h2>Menu</h2>
-</head>
-<body>
-    <ul>
-        <li><a href="<s:url action="home"/>">Inicio</a></li>
-        <li><a href="<s:url action="contacto"/>">Contactanos</a></li>
-        <li><a href="<s:url action="areaUsuario"/>">Area Usuarios</a></li>
-        <li><a href="<s:url action="mostrarActividades"/>">Actividades</a></li>
-    </ul>
-</body>
+        
+    </head>
+    <body>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="<s:url action="home"/>">Inicio</a></li>
+            <li><a href="<s:url action="contacto"/>">Contactanos</a></li>
+            <li><a href="<s:url action="areaUsuario"/>">Area Usuarios</a></li>
+            <li><a href="<s:url action="mostrarActividades"/>">Actividades</a></li>
+        </ul>
+    </body>
 </html>
