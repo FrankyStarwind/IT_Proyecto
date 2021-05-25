@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-may-2021 10:37:06 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="gestionActividades.Reserva" table="reserva" catalog="db_proyecto" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+                <many-to-one name="equipoByIdEquipoUnoFk" class="gestionActividades.Equipo" fetch="select">
+            <column name="idEquipoUnoFK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="equipoByIdEquipoDosFk" class="gestionActividades.Equipo" fetch="select">
+            <column name="idEquipoDosFK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pago" class="gestionActividades.Pago" fetch="select">
+            <column name="idPagoFK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="gestionActividades.Usuario" fetch="select">
+            <column name="usuarioFK" length="100" not-null="true" />
+        </many-to-one>
+                <many-to-one name="actividad" class="gestionActividades.Actividad" fetch="select">
+            <column name="idActividadFK" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true" />
+        </property>
+
+    </class>
+</hibernate-mapping>

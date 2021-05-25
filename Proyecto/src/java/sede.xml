@@ -1,0 +1,31 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Laura -->
+ 
+<struts>
+    <package name="sede" extends="struts-default">   
+        <action name="sedeAlta" class="actividades.Actions.sede" >
+            <result name="success">/vista/sedeAlta.jsp</result>
+        </action>
+        
+        <action name="altaSede" class="actividades.Actions.sede" method="altaSede" >
+            <result name="success">/vista/indexSede.jsp</result>
+        </action>
+        
+        <action name="indexSede" class="actividades.Actions.sede" method="listaSede">
+            <result name="success">/vista/indexSede.jsp</result>
+        </action>
+        
+        <action name="eliminarSede" class="actividades.Actions.sede" method="eliminarSede">
+            <result name="success">/vista/indexSede.jsp</result>
+        </action>
+        <action name="editSede" class="actividades.Actions.sede" method="editSede">
+            <result name="success">/vista/editSede.jsp</result>
+        </action>
+        <action name="editSedeF" class="actividades.Actions.sede" method="editSedeF">
+            <result name="success">/vista/indexSede.jsp</result>
+        </action>
+    </package>
+</struts>
