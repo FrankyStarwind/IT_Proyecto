@@ -26,8 +26,6 @@
 
                 <!-- Section --> 
                 <h1>Listado de Jugadores</h1>
-                <!-- Terminar tabla con operaciones CRUD de Usuario -->
-                <!-- Insertar, Borrar, Editar y Buscar-->
 
                 <table border="2">
                     <tr align="center">
@@ -60,13 +58,16 @@
                                     <s:hidden name="dni" value="%{dni}"/>
                                 </s:form>
                                  
-                            </td>
-                            
+                            </td>                            
 
                         </tr>
                     </s:iterator>
                 </table>
+<<<<<<< HEAD
                 <%@include file="includes/volver_index.jsp" %>
+=======
+                <%@include file="/vista/includes/volver_index.jsp" %>
+>>>>>>> main
             </div>
         </div>
 

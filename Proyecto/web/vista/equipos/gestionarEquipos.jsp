@@ -26,8 +26,6 @@
 
                 <!-- Section --> 
                 <h1>Listado de Equipos</h1>
-                <!-- Terminar tabla con operaciones CRUD de Usuario -->
-                <!-- Insertar, Borrar, Editar y Buscar-->
 
                 <table border="2">
                     <tr align="center">
@@ -44,6 +42,7 @@
                         </tr>
                     </s:iterator>
                 </table>
+                <%@include file="/vista/includes/volver_index.jsp" %>
             </div>
         </div>
 
