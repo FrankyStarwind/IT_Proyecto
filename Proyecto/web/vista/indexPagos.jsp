@@ -28,7 +28,7 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section --> 
-                    <h1>Listado de Usuarios</h1>
+                    <h1>Listado de Pagos</h1>
 
                     <table border="2">
                         <tr align="center">
