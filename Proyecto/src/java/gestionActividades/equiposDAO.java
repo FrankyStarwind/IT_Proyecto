@@ -5,10 +5,7 @@
  */
 package gestionActividades;
 
-import gestionActividades.Equipo;
-import gestionActividades.HibernateUtil;
 import java.util.List;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -67,13 +64,15 @@ public class equiposDAO {
 
     /**
      * Elimina un equipo de la base de datos
-     * @param e 
+     * 
+     * @param id
      */
-    public void eliminarEquipo(Equipo e){
+    public void eliminarEquipo(int id){
+        
         s1= HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx= s1.beginTransaction();
+        s1.createSQLQuery("delete from Jugador where id='" + id + "'").executeUpdate();
         
-        s1.delete(e);
         tx.commit();
     }
     

@@ -5,8 +5,10 @@
  */
 package actividades.Actions;
 
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import gestionActividades.Equipo;
+import gestionActividades.Jugador;
 import gestionActividades.equiposDAO;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,5 +80,10 @@ public class gestionEquipos extends ActionSupport {
         this.listaEquipos = listaEquipos;
     }
 
-    
+    public String eliminarJugador() throws Exception {
+        equiposDAO.eliminarEquipo(idEquipo);
+        listaEquipos = equiposDAO.consultaTodosLosEquipos();
+
+        return SUCCESS;
+    }
 }
