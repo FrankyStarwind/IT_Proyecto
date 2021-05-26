@@ -66,6 +66,7 @@
                         </tr>
                     </s:iterator>
                 </table>
+                <%@include file="includes/volver_index.jsp" %>
             </div>
         </div>
 
