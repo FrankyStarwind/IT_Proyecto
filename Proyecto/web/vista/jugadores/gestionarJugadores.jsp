@@ -63,7 +63,7 @@
                         </tr>
                     </s:iterator>
                 </table>
-                <%@include file="includes/volver_index.jsp" %>
+                <%@include file="/vista/includes/volver_index.jsp" %>
             </div>
         </div>
 
