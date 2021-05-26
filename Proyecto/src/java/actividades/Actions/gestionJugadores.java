@@ -29,7 +29,7 @@ public class gestionJugadores extends ActionSupport {
     private List<Jugador> listaJugadores = new ArrayList<>();
 
     private equiposDAO equipoDAO = new equiposDAO();
-    
+
     public gestionJugadores() {
     }
 
@@ -88,42 +88,48 @@ public class gestionJugadores extends ActionSupport {
     public void setJugadoresDAO(jugadoresDAO jugadoresDAO) {
         this.jugadoresDAO = jugadoresDAO;
     }
-      
 
     @Override
     public String execute() throws Exception {
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
-        
+
         System.out.println("Funciona");
         return SUCCESS;
     }
+
     /**
      * Elimina un jugador
+     *
      * @param j
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public String eliminarJugador() throws Exception {
-        Equipo p = (Equipo)equipoDAO.busquedaEquipoPorId(idEquipoFK);
-        
-        Jugador j = new Jugador(p,nombre,edad,dorsal);
+        Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
+
+        Jugador j = new Jugador(p, nombre, edad, dorsal);
         jugadoresDAO.eliminarJugador(j);
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
 
         return SUCCESS;
     }
+
+    public String editarJugador() throws Exception {
+
+        Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
+
+        Jugador j = new Jugador(p, nombre, edad, dorsal);
+        jugadoresDAO.editarJugador(j);
+        listaJugadores = jugadoresDAO.consultaTodosJugadores();
+
+        return SUCCESS;
+    }
     /**
-    public String editJugador() throws Exception {
-
-        lista = a.busquedaUsuarioPorDni(dni);
-
-        return SUCCESS;
-    }
-    
-    public String visualizarJugador() {
-        listaJugadores = jugadoresDAO.busquedaJugadorPorNombreDorsal(nombre, dorsal);
-        return SUCCESS;
-
-    }
-    * **/
+     * public String visualizarJugador() { listaJugadores =
+     * jugadoresDAO.busquedaJugadorPorNombreDorsal(nombre, dorsal); return
+     * SUCCESS;
+     *
+     * }
+     * *
+     */
 }

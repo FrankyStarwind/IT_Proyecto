@@ -55,7 +55,7 @@
                                 </s:form>
                                 </td>
                                 <td>
-                                <s:form action="editJugador">
+                                <s:form action="editarJugador">
                                     <s:submit value="Editar"></s:submit>
                                     <s:hidden name="dni" value="%{dni}"/>
                                 </s:form>

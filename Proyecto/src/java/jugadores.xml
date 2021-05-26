@@ -12,7 +12,7 @@
         <action name="eliminarJugador" class="actividades.Actions.gestionJugadores" method="eliminarJugador">
             <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
         </action>
-        <action name="editJugador" class="actividades.Actions.gestionJugadores" >
+        <action name="editarJugador" class="actividades.Actions.gestionJugadores" method="editarJugador">
             <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
         </action>
         
