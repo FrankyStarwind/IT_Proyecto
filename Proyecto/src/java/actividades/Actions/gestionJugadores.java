@@ -93,7 +93,22 @@ public class gestionJugadores extends ActionSupport {
         System.out.println("Funciona");
         return SUCCESS;
     }
+    
+    public String eliminarJugador(Jugador j) throws Exception {
+
+        jugadoresDAO.eliminarJugador(j);
+        listaJugadores = jugadoresDAO.consultaTodosJugadores();
+
+        return SUCCESS;
+    }
     /**
+    public String editJugador() throws Exception {
+
+        lista = a.busquedaUsuarioPorDni(dni);
+
+        return SUCCESS;
+    }
+    
     public String visualizarJugador() {
         listaJugadores = jugadoresDAO.busquedaJugadorPorNombreDorsal(nombre, dorsal);
         return SUCCESS;

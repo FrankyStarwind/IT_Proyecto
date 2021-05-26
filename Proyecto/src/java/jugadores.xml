@@ -5,8 +5,16 @@
  
 <struts>
    <package name="jugador" extends="struts-default">   
-        <action name="indexJugadores" class="actividades.Actions.gestionJugadores" >
-            <result name="success">/vista/jugadores/crearEquipo.jsp</result>
+        <action name="indexJugador" class="actividades.Actions.gestionJugadores" >
+            <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
         </action>
+        
+        <action name="eliminarJugador" class="actividades.Actions.gestionJugadores" method="eliminarJugador">
+            <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
+        </action>
+        <action name="editJugador" class="actividades.Actions.gestionJugadores" >
+            <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
+        </action>
+        
     </package>
 </struts>

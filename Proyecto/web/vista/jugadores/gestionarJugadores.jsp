@@ -36,18 +36,33 @@
                         <td>Edad</td>
                         <td>Dorsal</td>
                         <td>Equipo al que pertenece</td>
+                        <td>Opciones</td>
+                        <td> </td>
                     </tr>   
                     <s:iterator value="listaJugadores">
                         <tr align="center">
-                            
+
                             <td><s:property value="id"></s:property></td>
                             <td><s:property value="nombre"></s:property></td>
                             <td><s:property value="edad"></s:property></td>
                             <td><s:property value="dorsal"></s:property></td>
+
+                                <td><s:property value="idEquipoFK"></s:property></td>
+                                <td>
+                                <s:form action="eliminarJugador">
+                                    <s:submit value="Eliminar"></s:submit>
+                                    <s:hidden name="dni" value="%{dni}"/>
+                                </s:form>
+                                </td>
+                                <td>
+                                <s:form action="editJugador">
+                                    <s:submit value="Editar"></s:submit>
+                                    <s:hidden name="dni" value="%{dni}"/>
+                                </s:form>
+                                 
+                            </td>
                             
-                            <td><s:property value="idEquipoFK"></s:property></td>
-                            
-                                                                               
+
                         </tr>
                     </s:iterator>
                 </table>
