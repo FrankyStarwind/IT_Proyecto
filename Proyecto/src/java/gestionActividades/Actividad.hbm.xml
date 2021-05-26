@@ -10,7 +10,7 @@
         </id>
 
 
-        <many-to-one name="sede" class="gestionActividades.Sede" fetch="select">
+        <many-to-one name="sede" class="gestionActividades.Sede" fetch="select" lazy="false">
             <column name="idSedeFK" not-null="true" />
         </many-to-one>
         <property name="nombre" type="string">

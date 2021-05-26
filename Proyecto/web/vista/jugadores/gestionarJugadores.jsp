@@ -45,7 +45,7 @@
                             <td><s:property value="edad"></s:property></td>
                             <td><s:property value="dorsal"></s:property></td>
 
-                                <td><s:property value="idEquipoFK"></s:property></td>
+                                <td><s:property value="equipo.nombre"></s:property></td>
                                 <td>
                                 <s:form action="eliminarJugador">
                                     <s:submit value="Eliminar"></s:submit>

@@ -38,9 +38,10 @@
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
-                                <td><s:property value="id"></s:property></td>                                
+                                <td><s:property value="id"></s:property></td> 
+                                <td><s:property value="sede.nombre"></s:property></td>
                                 <td><s:property value="nombre"></s:property></td>
-                                <td><s:property value="sede"></s:property></td>
+                                
                                 </tr>
                         </s:iterator>
                     </table>
