@@ -59,8 +59,10 @@
                         <ul>
                             <li><a href="<s:url action="indexPagos"/>">Pagos</a></li>
                             <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
-                            <li><a href="<s:url action="indexSede"/>">Sede</a></li>
-                            <li><a href="<s:url action="indexJugador"/>">Jugador</a></li>
+                            <li><a href="<s:url action="indexSede"/>">Sedes</a></li>
+                            <li><a href="<s:url action="indexJugador"/>">Jugadores</a></li>
+                            <li><a href="<s:url action="indexEquipo"/>">Equipos</a></li>
+                            
                             <li><a href="<s:url action="logout"/>">Logout</a></li>
                         </ul>
                     </s:else>

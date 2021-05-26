@@ -25,7 +25,7 @@
                 <%@include file="../includes/include_header.jsp" %>                  
 
                 <!-- Section --> 
-                <h1>Listado de Jugadores</h1>
+                <h1>Listado de Equipos</h1>
                 <!-- Terminar tabla con operaciones CRUD de Usuario -->
                 <!-- Insertar, Borrar, Editar y Buscar-->
 
@@ -38,7 +38,7 @@
                     <s:iterator value="listaEquipos">
                         <tr align="center">
                             
-                            <td><s:property value="idEquipo"></s:property></td>
+                            <td><s:property value="id"></s:property></td>
                             <td><s:property value="nombre"></s:property></td>
                                                                                
                         </tr>
@@ -50,9 +50,6 @@
         <!-- Sidebar -->
         <div id="sidebar">
             <div class="inner">
-
-                <!-- Search -->
-                <%@include file="../includes/include_buscar.jsp" %>
 
                 <!-- Menu -->
                 <%@include file="../includes/include_menu.jsp" %>
