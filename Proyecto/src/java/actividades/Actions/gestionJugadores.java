@@ -6,7 +6,9 @@
 package actividades.Actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import gestionActividades.Equipo;
 import gestionActividades.Jugador;
+import gestionActividades.equiposDAO;
 import gestionActividades.jugadoresDAO;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,8 @@ public class gestionJugadores extends ActionSupport {
     private jugadoresDAO jugadoresDAO = new jugadoresDAO();
     private List<Jugador> listaJugadores = new ArrayList<>();
 
+    private equiposDAO equipoDAO = new equiposDAO();
+    
     public gestionJugadores() {
     }
 
@@ -93,9 +97,16 @@ public class gestionJugadores extends ActionSupport {
         System.out.println("Funciona");
         return SUCCESS;
     }
-    
-    public String eliminarJugador(Jugador j) throws Exception {
-
+    /**
+     * Elimina un jugador
+     * @param j
+     * @return
+     * @throws Exception 
+     */
+    public String eliminarJugador() throws Exception {
+        Equipo p = (Equipo)equipoDAO.busquedaEquipoPorId(idEquipoFK);
+        
+        Jugador j = new Jugador(p,nombre,edad,dorsal);
         jugadoresDAO.eliminarJugador(j);
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
 

@@ -49,6 +49,20 @@ public class equiposDAO {
         Equipo equipo = (Equipo) q1.uniqueResult();
         tx.commit();
         return equipo;
+    }/**
+     * Busca el equipo por su nombre
+     *
+     * @param id
+     * @return
+     */
+    public Equipo busquedaEquipoPorId(int id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Equipo where id='" + id + "'");
+
+        Equipo equipo = (Equipo) q1.uniqueResult();
+        tx.commit();
+        return equipo;
     }
 
     /**
