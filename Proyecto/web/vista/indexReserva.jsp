@@ -28,60 +28,56 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section --> 
-        <h1>Listado de Sedes</h1>
-        <!-- Terminar tabla con operaciones CRUD de Usuario -->
-        <!-- Insertar, Borrar, Editar y Buscar-->
+                    <h1>Listado de Sedes</h1>
 
-        <table border="2">
-            <tr align="center">
-                <td>Actividad</td>
-                <td>Fecha</td>
+                    <table border="2">
+                        <tr align="center">
+                            <td>Actividad</td>
+                            <td>Fecha</td>
 
-                 <td colspan="2">Opciones</td>
-                  
-            </tr>   
-            <s:iterator value="listaReserva">
-                <tr align="center">
-                    <td><s:property value="actividad"></s:property></td>
-                    <td><s:property value="fecha"></s:property></td>
+                            <td colspan="2">Opciones</td>
 
-                    
-         <td>
-                <s:form action="eliminarReserva">
-                    <s:submit value="Eliminar"></s:submit>
-                    <s:hidden name="id" value="%{id}"/>
-                </s:form>
-                </td>
-                <td>
-                <s:form action="editReserva">
-                    <s:submit value="Editar"></s:submit>
-                       <s:hidden name="id" value="%{id}"/>
-                </s:form>
-                </td>
-                                                  
-                </tr>
-            </s:iterator>
+                        </tr>   
+                        <s:iterator value="listaReserva">
+                            <tr align="center">
+                                <td><s:property value="actividad"></s:property></td>
+                                <td><s:property value="fecha"></s:property></td>
+
+
+                                    <td>
+                                    <s:form action="eliminarReserva">
+                                        <s:submit value="Eliminar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+                                <td>
+                                    <s:form action="editReserva">
+                                        <s:submit value="Editar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+
+                            </tr>
+                        </s:iterator>
                     </table>
-               <table border='1' style="text-align: center">
-            <tr>
-                <td>
-                <s:form action="reservaAlta">
-                    <s:submit value="Insertar Reserva"></s:submit>
-                </s:form>
-                </td>
-  
-            </tr>
+                    <table border='1' style="text-align: center">
+                        <tr>
+                            <td>
+                                <s:form action="reservaAlta">
+                                    <s:submit value="Insertar Reserva"></s:submit>
+                                </s:form>
+                            </td>
 
-        </table>
+                        </tr>
+
+                    </table>
+                    <%@include file="includes/volver_index.jsp" %>
                 </div>
             </div>
 
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
 
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>

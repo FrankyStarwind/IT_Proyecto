@@ -28,48 +28,44 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section --> 
-        <h1>Listado de Usuarios</h1>
-        <!-- Terminar tabla con operaciones CRUD de Usuario -->
-        <!-- Insertar, Borrar, Editar y Buscar-->
+                    <h1>Listado de Usuarios</h1>
 
-        <table border="2">
-            <tr align="center">
-                <td>Username</td>
-                <td>Password</td>
-                <td>Nombre</td>
-                <td>Apellidos</td>
-                <td>Dni</td>
-                <td>Email</td>
-                <td>Telefono</td>
-                <td>Administrador</td>                
-            </tr>   
-            <s:iterator value="lista">
-                <tr align="center">
-                    <td><s:property value="userName"></s:property></td>
-                    <td><s:property value="password"></s:property></td>
-                    <td><s:property value="nombre"></s:property></td>
-                    <td><s:property value="apellidos"></s:property></td>
-                    <td><s:property value="dni"></s:property></td>
-                    <td><s:property value="email"></s:property></td>
-                    <td><s:property value="tlf"></s:property></td>
-                    <s:if test="admin != 0">
-                        <td>Sí</td>                              
-                    </s:if>
-                    <s:else>
-                        <td>No</td>
-                    </s:else>                                                   
-                </tr>
-            </s:iterator>
+                    <table border="2">
+                        <tr align="center">
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>Nombre</td>
+                            <td>Apellidos</td>
+                            <td>Dni</td>
+                            <td>Email</td>
+                            <td>Telefono</td>
+                            <td>Administrador</td>                
+                        </tr>   
+                        <s:iterator value="lista">
+                            <tr align="center">
+                                <td><s:property value="userName"></s:property></td>
+                                <td><s:property value="password"></s:property></td>
+                                <td><s:property value="nombre"></s:property></td>
+                                <td><s:property value="apellidos"></s:property></td>
+                                <td><s:property value="dni"></s:property></td>
+                                <td><s:property value="email"></s:property></td>
+                                <td><s:property value="tlf"></s:property></td>
+                                <s:if test="admin != 0">
+                                    <td>Sí</td>                              
+                                </s:if>
+                                <s:else>
+                                    <td>No</td>
+                                </s:else>                                                   
+                            </tr>
+                        </s:iterator>
                     </table>
-                </div>
+                    <%@include file="includes/volver_index.jsp" %>
+                </div>               
             </div>
 
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
 
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>

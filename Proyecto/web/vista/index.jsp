@@ -36,10 +36,10 @@
                             <li><a href="<s:url action="pagos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Ver Pagos</a></li>
-                             <li><a href="<s:url action="reserva"><s:param name="dni" value="%{#session.dni}">
+                            <li><a href="<s:url action="reserva"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Ver Reservas</a></li>
-                             
+
                             <li><a href="<s:url action="misDatos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Ver Mis Datos</a></li>
@@ -53,7 +53,7 @@
                         <ul>
                             <li><a href="<s:url action="indexPagos"/>">Pagos</a></li>
                             <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
-                               <li><a href="<s:url action="indexSede"/>">Sede</a></li>
+                            <li><a href="<s:url action="indexSede"/>">Sede</a></li>
                             <li><a href="<s:url action="logout"/>">Logout</a></li>
                         </ul>
                     </s:else>
@@ -63,8 +63,6 @@
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>
                     <!-- Section -->

@@ -31,7 +31,7 @@
                     <%@include file="includes/include_banner.jsp" %>
 
                     <!-- Section -->
-                    <%@include file="includes/include_section.jsp" %>
+                    <%@include file="includes/include_section.jsp" %>                    
 
                 </div>
             </div>

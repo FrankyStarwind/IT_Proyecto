@@ -28,66 +28,60 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section --> 
-        <h1>Listado de Sedes</h1>
-        <!-- Terminar tabla con operaciones CRUD de Usuario -->
-        <!-- Insertar, Borrar, Editar y Buscar-->
+                    <h1>Listado de Sedes</h1>
 
-        <table border="2">
-            <tr align="center">
-                <td>Nombre</td>
-                <td>Dirección</td>
-                <td>Teléfono</td>
-                <td>Cp</td>
-                <td>Email</td>
-                <td>Provincia</td>
-                 <td colspan="2">Opciones</td>
-                  
-            </tr>   
-            <s:iterator value="listaSede">
-                <tr align="center">
-                    <td><s:property value="nombre"></s:property></td>
-                    <td><s:property value="direccion"></s:property></td>
-                    <td><s:property value="tlf"></s:property></td>
-                    <td><s:property value="cp"></s:property></td>
-                    <td><s:property value="email"></s:property></td>
-                    <td><s:property value="provincia"></s:property></td>
-                    
-         <td>
-                <s:form action="eliminarSede">
-                    <s:submit value="Eliminar"></s:submit>
-                    <s:hidden name="id" value="%{id}"/>
-                </s:form>
-                </td>
-                <td>
-                <s:form action="editSede">
-                    <s:submit value="Editar"></s:submit>
-                       <s:hidden name="id" value="%{id}"/>
-                </s:form>
-                </td>
-                                                  
-                </tr>
-            </s:iterator>
+                    <table border="2">
+                        <tr align="center">
+                            <td>Nombre</td>
+                            <td>Dirección</td>
+                            <td>Teléfono</td>
+                            <td>Cp</td>
+                            <td>Email</td>
+                            <td>Provincia</td>
+                            <td colspan="2">Opciones</td>
+
+                        </tr>   
+                        <s:iterator value="listaSede">
+                            <tr align="center">
+                                <td><s:property value="nombre"></s:property></td>
+                                <td><s:property value="direccion"></s:property></td>
+                                <td><s:property value="tlf"></s:property></td>
+                                <td><s:property value="cp"></s:property></td>
+                                <td><s:property value="email"></s:property></td>
+                                <td><s:property value="provincia"></s:property></td>
+
+                                    <td>
+                                    <s:form action="eliminarSede">
+                                        <s:submit value="Eliminar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+                                <td>
+                                    <s:form action="editSede">
+                                        <s:submit value="Editar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+
+                            </tr>
+                        </s:iterator>
                     </table>
-               <table border='1' style="text-align: center">
-            <tr>
-                <td>
-                <s:form action="sedeAlta">
-                    <s:submit value="Insertar Sede"></s:submit>
-                </s:form>
-                </td>
-  
-            </tr>
-
-        </table>
+                    <table border='1' style="text-align: center">
+                        <tr>
+                            <td>
+                                <s:form action="sedeAlta">
+                                    <s:submit value="Insertar Sede"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>
+                    </table>
+                    <%@include file="includes/volver_index.jsp" %>
                 </div>
             </div>
 
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
 
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>

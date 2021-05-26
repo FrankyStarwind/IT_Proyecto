@@ -29,8 +29,6 @@
 
                     <!-- Section --> 
                     <h1>Listado de Usuarios</h1>
-                    <!-- Terminar tabla con operaciones CRUD de Usuario -->
-                    <!-- Insertar, Borrar, Editar y Buscar-->
 
                     <table border="2">
                         <tr align="center">
@@ -53,15 +51,13 @@
                                 </tr>
                         </s:iterator>
                     </table>
+                    <%@include file="includes/volver_index.jsp" %>
                 </div>
             </div>
 
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
 
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>

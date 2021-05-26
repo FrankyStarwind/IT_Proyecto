@@ -49,9 +49,6 @@
             <div id="sidebar">
                 <div class="inner">
 
-                    <!-- Search -->
-                    <%@include file="includes/include_buscar.jsp" %>
-
                     <!-- Menu -->
                     <%@include file="includes/include_menu.jsp" %>
 
