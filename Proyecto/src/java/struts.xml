@@ -33,5 +33,5 @@
     <include file="sede.xml" />
     <include file="reserva.xml" />
     <include file="actividades.xml" />
-  
+    <include file="jugadores.xml" />
 </struts>

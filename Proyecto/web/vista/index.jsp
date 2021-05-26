@@ -43,9 +43,15 @@
                             <li><a href="<s:url action="misDatos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Ver Mis Datos</a></li>
+                            <li><a href="<s:url action="indexJugadores"><s:param name="dni" value="%{#session.dni}">
+                                       </s:param>
+                                   </s:url>">Mostrar jugadores</a></li>
+                            
                             <li><a href="<s:url action="inicio"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Logout</a></li>
+                            
+                            
                         </ul>
                     </s:if>
                     <s:else>
@@ -54,6 +60,7 @@
                             <li><a href="<s:url action="indexPagos"/>">Pagos</a></li>
                             <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
                             <li><a href="<s:url action="indexSede"/>">Sede</a></li>
+                            <li><a href="<s:url action="indexJugador"/>">Jugador</a></li>
                             <li><a href="<s:url action="logout"/>">Logout</a></li>
                         </ul>
                     </s:else>
