@@ -49,7 +49,7 @@
                                 <td>
                                 <s:form action="eliminarJugador">
                                     <s:submit value="Eliminar"></s:submit>
-                                    <s:hidden name="dni" value="%{dni}"/>
+                                    <s:hidden name="id" value="%{id}"/>
                                 </s:form>
                                 </td>
                                 <td>

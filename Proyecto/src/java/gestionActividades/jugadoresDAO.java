@@ -70,15 +70,22 @@ public class jugadoresDAO {
     }
     /**
      * Eliminar un jugador de la bd
-     * @param j 
+     * @param id 
      */
 
-    public void eliminarJugador(Jugador j) {
+    public void eliminarJugador(String id) {
         s1= HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx= s1.beginTransaction();
+        s1.createSQLQuery("delete from Jugador where id='" + id + "'").executeUpdate();
         
-        s1.delete(j);
         tx.commit();
     }
-    
+    /**
+     * public void eliminarUsuario(String dni) {
+       s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+       Transaction tx = s1.beginTransaction();
+       s1.createSQLQuery("delete from Usuario where dni='" + dni + "'").executeUpdate();
+       tx.commit();
+    }
+     */
 }

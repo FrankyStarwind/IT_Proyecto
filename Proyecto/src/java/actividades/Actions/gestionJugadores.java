@@ -108,7 +108,7 @@ public class gestionJugadores extends ActionSupport {
         Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
 
         Jugador j = new Jugador(p, nombre, edad, dorsal);
-        jugadoresDAO.eliminarJugador(j);
+        jugadoresDAO.eliminarJugador(id+"");
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
 
         return SUCCESS;
