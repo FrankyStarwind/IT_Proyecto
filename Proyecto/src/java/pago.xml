@@ -9,5 +9,8 @@
         <action name="indexPagos" class="actividades.Actions.pago" >
             <result name="success">/vista/indexPagos.jsp</result>
         </action>
+        <action name="misPagos" class="actividades.Actions.pago" method="visualizarPagoUsuario" >
+            <result name="success">/vista/indexPagos.jsp</result>
+        </action> 
     </package>
 </struts>

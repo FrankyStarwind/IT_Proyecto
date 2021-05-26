@@ -6,6 +6,7 @@
 package actividades.Actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import gestionActividades.Pago;
 import gestionActividades.Usuario;
 import gestionActividades.actividadesDAO;
 import java.util.ArrayList;
@@ -26,10 +27,26 @@ public class pago extends ActionSupport{
     private Date fecha;
     
     //VARIABLES GENERALES
-    List<Usuario> lista = new ArrayList<>();    
+    List<Pago> lista = new ArrayList<>();    
     private actividadesDAO A = new actividadesDAO();
     
     public pago() {
+    }
+
+    public List<Pago> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Pago> lista) {
+        this.lista = lista;
+    }
+
+    public actividadesDAO getA() {
+        return A;
+    }
+
+    public void setA(actividadesDAO A) {
+        this.A = A;
     }
 
     public String getMetodoPago() {
@@ -71,7 +88,12 @@ public class pago extends ActionSupport{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-   
+   /*public String visualizarPagoUsuario() throws Exception {
+        //Consultamos y devolvemos los datos del usuario
+        lista = A.busquedaPagoPorDni(this.getId());
+
+        return SUCCESS;
+    }*/
     
     public String execute() throws Exception {
         //Consultamos y devolvemos una lista con todos los pagos

@@ -22,7 +22,7 @@ import java.util.Set;
  */
 public class sede extends ActionSupport {
 
-    //VARIABLES DE USUARIO    
+    //VARIABLES DE SEDE    
     private String nombre, email, tlf;
 
     private int id;
