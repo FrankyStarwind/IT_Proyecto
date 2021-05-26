@@ -29,7 +29,7 @@ public class controlador extends ActionSupport {
     private int id;
 
     
-        //VARIABLES GENERALES
+    //VARIABLES GENERALES
 
     private actividadesDAO A = new actividadesDAO();
     Usuario usu = new Usuario();

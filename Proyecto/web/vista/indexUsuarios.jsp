@@ -39,7 +39,8 @@
                             <td>Dni</td>
                             <td>Email</td>
                             <td>Telefono</td>
-                            <td>Administrador</td>                
+                            <td>Administrador</td>   
+                            <td colspan="2">Opciones</td>
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
@@ -51,16 +52,45 @@
                                 <td><s:property value="email"></s:property></td>
                                 <td><s:property value="tlf"></s:property></td>
                                 <s:if test="admin != 0">
-                                    <td>Sí</td>                              
+                                    <td>Si</td>                              
                                 </s:if>
                                 <s:else>
                                     <td>No</td>
-                                </s:else>                                                   
+                                </s:else>  
+                                <td>
+                                    <s:form action="eliminarUsuario">
+                                        <s:submit value="Eliminar"></s:submit>
+                                        <s:hidden name="dni" value="%{dni}"/>
+                                    </s:form>
+                                </td>
+                                <td>
+                                    <s:form action="editUsuario">
+                                        <s:submit value="Editar"></s:submit>
+                                        <s:hidden name="dni" value="%{dni}"/>
+                                    </s:form>
+                                </td>                           
                             </tr>
                         </s:iterator>
                     </table>
+                    <table border='1'>
+                        <tr>
+                            <td>
+                                <s:form action="usuarioAlta">
+                                    <s:submit value="Insertar Usuario"></s:submit>
+                                </s:form>
+                            </td>                        
+                            <s:form action="buscarUsuario">
+                                <td><s:textfield name="dni" label="Introduzca Dni a buscar: "></s:textfield>
+                                    <s:hidden name="dni" value="%{dni}"/>
+                                </td>
+                                <td> 
+                                    <s:submit value="Buscar"></s:submit>
+                                    </td>                                
+                            </s:form>                            
+                        </tr>      
+                    </table>
                     <%@include file="includes/volver_index.jsp" %>
-                </div>               
+                </div>
             </div>
 
             <!-- Sidebar -->
@@ -72,7 +102,6 @@
 
                     <!-- Section -->
                     <%@include file="includes/include_menu_section.jsp" %>
-
 
                     <!-- Footer -->
                     <%@include file="includes/include_footer.jsp" %>

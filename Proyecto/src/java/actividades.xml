@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Laura -->
+ 
+<struts>
+    <package name="actividades" extends="struts-default"> 
+        <action name="mostrarActividades" class="actividades.Actions.actividades" >
+            <result name="success">/vista/indexActividades.jsp</result>
+        </action>
+    </package>
+</struts>

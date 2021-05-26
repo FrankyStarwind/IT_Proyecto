@@ -12,7 +12,25 @@
         <action name="misDatos" class="actividades.Actions.controlador" method="visualizarUsuario" >
             <result name="success">/vista/visualizarUsuario.jsp</result>
         </action> 
-        <action name="indexUsuarios" class="actividades.Actions.controlador" >
+        <action name="indexUsuarios" class="actividades.Actions.usuario" >
+            <result name="success">/vista/indexUsuarios.jsp</result>
+        </action>
+        <action name="usuarioAlta">
+            <result name="success">/vista/usuarioAlta.jsp</result>
+        </action>
+        <action name="altaUsuario" class="actividades.Actions.usuario" method="altaUsuario" >
+            <result name="success">/vista/indexUsuarios.jsp</result>
+        </action>        
+        <action name="eliminarUsuario" class="actividades.Actions.usuario" method="eliminarUsuario">
+            <result name="success">/vista/indexUsuarios.jsp</result>
+        </action>
+        <action name="editUsuario" class="actividades.Actions.usuario" method="editUsuario">
+            <result name="success">/vista/editUsuario.jsp</result>
+        </action>
+        <action name="editUsuarioF" class="actividades.Actions.usuario" method="editUsuarioF">
+            <result name="success">/vista/indexUsuarios.jsp</result>
+        </action>
+        <action name="buscarUsuario" class="actividades.Actions.usuario" method="buscarUsuario">
             <result name="success">/vista/indexUsuarios.jsp</result>
         </action>
     </package>

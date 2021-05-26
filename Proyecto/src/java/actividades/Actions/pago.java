@@ -24,7 +24,6 @@ public class pago extends ActionSupport{
     private int id;
     private double importe, pagado;
     private Date fecha;
-    private Set reservas;
     
     //VARIABLES GENERALES
     List<Usuario> lista = new ArrayList<>();    
@@ -72,15 +71,7 @@ public class pago extends ActionSupport{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    public Set getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(Set reservas) {
-        this.reservas = reservas;
-    }
-    
+   
     
     public String execute() throws Exception {
         //Consultamos y devolvemos una lista con todos los pagos

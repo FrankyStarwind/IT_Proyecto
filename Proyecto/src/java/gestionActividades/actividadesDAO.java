@@ -40,12 +40,33 @@ public class actividadesDAO {
 
     public List<Usuario> busquedaUsuarioPorDni(String dni) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = s1.beginTransaction();
+        Transaction tx = s1.beginTransaction();        
         Query q1 = s1.createQuery("from Usuario where dni='" + dni + "'");
         List<Usuario> lista = (List<Usuario>) q1.list();
         tx.commit();
         return lista;
     }
+    public void insertarUsuario(Usuario usu) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction(); 
+        s1.save(usu);
+        tx.commit();
+    }
+
+    public void editarUsuario(Usuario usu) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction(); 
+        s1.update(usu);
+        tx.commit();
+    }
+
+    public void eliminarUsuario(String dni) {
+       s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+       Transaction tx = s1.beginTransaction();
+       s1.createSQLQuery("delete from Usuario where dni='" + dni + "'").executeUpdate();
+       tx.commit();
+    }
+    
 
     public List<Usuario> consultaTodosPagos() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();

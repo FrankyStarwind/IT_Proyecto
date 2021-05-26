@@ -32,5 +32,6 @@
     <include file="pago.xml" />
     <include file="sede.xml" />
     <include file="reserva.xml" />
+    <include file="actividades.xml" />
   
 </struts>
