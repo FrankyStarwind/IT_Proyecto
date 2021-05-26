@@ -33,10 +33,8 @@
                     <s:if test="%{#session.usuario != null}">
                         <h2>Bienvenido <s:property value="#session.usuario" /></h2>
                         <ul>
-                            <li><a href="<s:url action="pagos"><s:param name="dni" value="%{#session.dni}">
-                                       </s:param>
-                                   </s:url>">Ver Pagos</a></li>
-                            <li><a href="<s:url action="indexPagos"><s:param name="dni" value="%{#session.dni}">
+                            
+                            <li><a href="<s:url action="misPagos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Ver Reservas</a></li>
 

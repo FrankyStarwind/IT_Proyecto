@@ -68,15 +68,24 @@ public class actividadesDAO {
     }
     
 
-    public List<Usuario> consultaTodosPagos() {
+    public List<Pago> consultaTodosPagos() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Pago");
-        List<Usuario> lista = (List<Usuario>) q1.list();
+        List<Pago> lista = (List<Pago>) q1.list();
         tx.commit();
         return lista;
     }
 
+     public List<Usuario> busquedaPagoPorDni(int id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();        
+        Query q1 = s1.createQuery("from Usuario where id='" + id + "'");
+        List<Usuario> lista = (List<Usuario>) q1.list();
+        tx.commit();
+        return lista;
+     }
+     
     public void insertarSede(Sede se) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -157,5 +166,7 @@ public class actividadesDAO {
         tx.commit();
         return lista;
     }
+
+   
 
 }
