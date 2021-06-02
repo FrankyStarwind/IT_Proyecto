@@ -80,7 +80,7 @@ public class equiposDAO {
         
         s1= HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx= s1.beginTransaction();
-        s1.createSQLQuery("delete from Jugador where id='" + id + "'").executeUpdate();
+        s1.createSQLQuery("delete from Equipo where id='" + id + "'").executeUpdate();
         
         tx.commit();
     }
@@ -100,5 +100,15 @@ public class equiposDAO {
         List<Jugador> jugadores = (List<Jugador>) q1.list();
         tx.commit();
         return jugadores;
+    }
+    
+    public void crearEquipo(Equipo equipo) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.save(equipo);
+
+        s1.getTransaction().commit();
     }
 }

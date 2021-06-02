@@ -21,23 +21,13 @@ public class gestionEquipos extends ActionSupport {
 
     private int idEquipo;
     private String nombre;
-    
+
     private int idEquipoFK;
 
     private equiposDAO equiposDAO = new equiposDAO();
     private List<Equipo> listaEquipos = new ArrayList<>();
 
     public gestionEquipos() {
-    }
-
-      
-
-    @Override
-    public String execute() throws Exception {
-        listaEquipos = equiposDAO.consultaTodosLosEquipos();
-        
-        System.out.println("Funciona");
-        return SUCCESS;
     }
 
     public int getIdEquipo() {
@@ -78,6 +68,19 @@ public class gestionEquipos extends ActionSupport {
 
     public void setListaEquipos(List<Equipo> listaEquipos) {
         this.listaEquipos = listaEquipos;
+    }
+
+    @Override
+    public String execute() throws Exception {
+        listaEquipos = equiposDAO.consultaTodosLosEquipos();
+
+        System.out.println("Funciona");
+        return SUCCESS;
+    }
+    public String altaEquipo() throws Exception{
+        Equipo equipo = new Equipo(nombre);
+        equiposDAO.crearEquipo(equipo);
+        return SUCCESS;
     }
 
     public String eliminarJugador() throws Exception {

@@ -31,16 +31,25 @@
                     <tr align="center">
                         <td>id</td>
                         <td>Nombre</td>
-                        
+
                     </tr>   
                     <s:iterator value="listaEquipos">
                         <tr align="center">
-                            
+
                             <td><s:property value="id"></s:property></td>
                             <td><s:property value="nombre"></s:property></td>
-                                                                               
-                        </tr>
+
+                            </tr>
                     </s:iterator>
+                </table>
+                <table border='1' style="text-align: center">
+                    <tr>
+                        <td>
+                            <s:form action="altaEquipo">
+                                <s:submit value="Crear Equipo"></s:submit>
+                            </s:form>
+                        </td>
+                    </tr>
                 </table>
                 <%@include file="/vista/includes/volver_index.jsp" %>
             </div>
