@@ -32,9 +32,9 @@ public class jugadoresDAO {
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Jugador");
         List<Jugador> listaJugadores = (List<Jugador>) q1.list();
-        if (listaJugadores.size() == 0) {
-            System.out.println("Esta vacio");
-        }
+//        if (listaJugadores.size() == 0) {
+//            System.out.println("Esta vacio");
+//        }
         tx.commit();
         return listaJugadores;
     }
