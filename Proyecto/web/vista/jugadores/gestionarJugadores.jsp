@@ -56,6 +56,8 @@
                                 <s:form action="editarJugador">
                                     <s:submit value="Editar"></s:submit>
                                     <s:hidden name="id" value="%{id}"/>
+                                    <%--<s:hidden name="idEquipo" value="%{i}"/>--%>
+                                    
                                 </s:form>
                                  
                             </td>                            
@@ -63,7 +65,15 @@
                         </tr>
                     </s:iterator>
                 </table>
-
+                <table border='1' style="text-align: center">
+                        <tr>
+                            <td>
+                                <s:form action="altaJugador">
+                                    <s:submit value="Insertar Jugador"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>
+                    </table>
                 <%@include file="/vista/includes/volver_index.jsp" %>
 
             </div>

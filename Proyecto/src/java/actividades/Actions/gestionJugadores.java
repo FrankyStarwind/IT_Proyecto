@@ -24,7 +24,8 @@ public class gestionJugadores extends ActionSupport {
     private int edad;
     private int dorsal;
     private int idEquipoFK;
-
+    private Equipo eq;
+    
     private jugadoresDAO jugadoresDAO = new jugadoresDAO();
     private List<Jugador> listaJugadores = new ArrayList<>();
 
@@ -92,7 +93,9 @@ public class gestionJugadores extends ActionSupport {
     @Override
     public String execute() throws Exception {
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
-
+        for(Jugador k: listaJugadores){
+            System.out.println(k.getEquipo().getId());
+        }
         System.out.println("Funciona");
         return SUCCESS;
     }
@@ -105,31 +108,29 @@ public class gestionJugadores extends ActionSupport {
      * @throws Exception
      */
     public String eliminarJugador() throws Exception {
-        Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
-
-        Jugador j = new Jugador(p, nombre, edad, dorsal);
+        System.out.println("La id es "+id);
         jugadoresDAO.eliminarJugador(id+"");
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
 
         return SUCCESS;
     }
 
+    
     public String editarJugador() throws Exception {
-
+        
+        jugadoresDAO.busquedaJugadorPorId(id);
+        System.out.println("La id es "+id);
+        return SUCCESS;
+    }
+    public String editarJugadorF() throws Exception{
         Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
 
         Jugador j = new Jugador(p, nombre, edad, dorsal);
         jugadoresDAO.editarJugador(j);
+        
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
-
         return SUCCESS;
     }
-    /**
-     * public String visualizarJugador() { listaJugadores =
-     * jugadoresDAO.busquedaJugadorPorNombreDorsal(nombre, dorsal); return
-     * SUCCESS;
-     *
-     * }
-     * *
-     */
+
+  
 }

@@ -32,9 +32,7 @@ public class jugadoresDAO {
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Jugador");
         List<Jugador> listaJugadores = (List<Jugador>) q1.list();
-//        if (listaJugadores.size() == 0) {
-//            System.out.println("Esta vacio");
-//        }
+
         tx.commit();
         return listaJugadores;
     }
@@ -46,16 +44,55 @@ public class jugadoresDAO {
      * @param dorsal
      * @return
      */
-    public Jugador busquedaJugadorPorNombreDorsal(String nombre, int dorsal) {
+    public Jugador busquedaJugadorPorNombreDorsal(String nombre) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Jugador where nombre='" + nombre + "' and dorsal='" + dorsal + "'");
+        Query q1 = s1.createQuery("from Jugador where nombre='" + nombre + "'");
 
         Jugador jugador = (Jugador) q1.uniqueResult();
         tx.commit();
         return jugador;
     }
+    /**
+     * Localiza el jugador por el dorsal y el nombre
+     *
+     * @param nombre
+     * @param dorsal
+     * @return
+     */
+    public Jugador busquedaJugadorPorId(int id
+//            , int idEq
+    ) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        
+        Query q1 = s1.createQuery("from Jugador as j where j.id='" +id
+//                +"' and j.idEquipoFK='"+idEq
+                +"'");
 
+        Jugador jugador = (Jugador) q1.uniqueResult();
+        tx.commit();
+        return jugador;
+    }
+    
+    /**
+     * Localiza el jugador por el dorsal y el nombre
+     *
+     * @param nombre
+     * @param dorsal
+     * @return
+     */
+    public Jugador busquedaJugadorPorNombre(int id, int idEquipoFK) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Jugador where id='" +id
+                +"' and idEquipoFK='"+idEquipoFK
+                +"'");
+
+        Jugador jugador = (Jugador) q1.uniqueResult();
+        tx.commit();
+        return jugador;
+    }
     /**
      * Edita un jugador de la bd
      * @param jug
@@ -66,7 +103,7 @@ public class jugadoresDAO {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         s1.update(jug);
-        tx.commit();
+        s1.getTransaction().commit();
     }
     /**
      * Eliminar un jugador de la bd

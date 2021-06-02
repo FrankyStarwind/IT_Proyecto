@@ -62,6 +62,15 @@ public class equiposDAO {
         return equipo;
     }
 
+    public Equipo busquedaEquipoPorNombre(int nombre) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Equipo where nombre='" + nombre + "'");
+
+        Equipo equipo = (Equipo) q1.uniqueResult();
+        tx.commit();
+        return equipo;
+    }
     /**
      * Elimina un equipo de la base de datos
      * 

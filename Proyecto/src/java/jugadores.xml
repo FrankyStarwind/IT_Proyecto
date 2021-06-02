@@ -15,6 +15,9 @@
         <action name="editarJugador" class="actividades.Actions.gestionJugadores" method="editarJugador">
             <result name="success">/vista/jugadores/editarJugador.jsp</result>
         </action>
+        <action name="altaJugador" class="actividades.Actions.gestionJugadores" method="altaJugador">
+            <result name="success">/vista/jugadores/editarJugador.jsp</result>
+        </action>
         
     </package>
 </struts>

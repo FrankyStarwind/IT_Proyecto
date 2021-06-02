@@ -28,12 +28,12 @@
 
                     <!-- Section -->
                     <h1>Edici&oacute;n de Jugador</h1>
-                    <s:form action="editarJugador">
-                        <s:iterator value="lista">   
+                    <s:form action="editarJugadorF">
+                        <s:iterator value="listaJugadores">   
                             <s:textfield name="nombre" label="Nombre" value="%{nombre}" />
                             <s:textfield name="edad" label="Edad" value="%{edad}" />
-                           <s:textfield name="dorsal" label="Dorsal" value="%{dorsal}" />
-                            <s:textfield name="equipo.nombre" label="Equipo" value="%{equipo.nombre}" />
+                            <s:textfield name="dorsal" label="Dorsal" value="%{dorsal}" />
+                            <%--<s:textfield name="equipo.nombre" label="Equipo" value="%{equipo.nombre}" />--%>
                             <s:submit value="Guardar"/>
                         </s:iterator>
                     </s:form>
