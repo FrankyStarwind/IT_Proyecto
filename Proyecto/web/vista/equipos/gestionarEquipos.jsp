@@ -29,8 +29,8 @@
 
                 <table border="2">
                     <tr align="center">
-                        <td>id</td>
-                        <td>Nombre</td>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
 
                     </tr>   
                     <s:iterator value="listaEquipos">

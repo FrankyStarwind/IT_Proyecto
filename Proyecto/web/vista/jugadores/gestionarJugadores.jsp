@@ -34,8 +34,7 @@
                         <td>EDAD</td>
                         <td>DORSAL</td>
                         <td>EQUIPO AL QUE PERTENECE</td>
-                        <td>OPCIONES</td>
-                        <td> </td>
+                        <td colspan="2">OPCIONES</td>                        
                     </tr>   
                     <s:iterator value="listaJugadores">
                         <tr align="center">

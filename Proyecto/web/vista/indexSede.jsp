@@ -32,13 +32,13 @@
 
                     <table border="2">
                         <tr align="center">
-                            <th>NOMBRE</th>
-                            <th>DIRECCIÓN</th>
-                            <th>TELÉFONO</th>
-                            <th>CP</th>
-                            <th>EMAIL</th>
-                            <th>PROVINCIA</th>
-                            <th colspan="2">OPCIONES</th>
+                            <td>NOMBRE</td>
+                            <td>DIRECCIÓN</td>
+                            <td>TELÉFONO</td>
+                            <td>CP</td>
+                            <td>EMAIL</td>
+                            <td>PROVINCIA</td>
+                            <td colspan="2">OPCIONES</td>
 
                         </tr>   
                         <s:iterator value="listaSede">

@@ -34,13 +34,16 @@
                         <h2>Bienvenido <s:property value="#session.usuario" /></h2>
                         <ul>
                             
-                            <li><a href="<s:url action="misPagos"><s:param name="dni" value="%{#session.dni}">
+                            <li><a href="<s:url action="reservas"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
-                                   </s:url>">Ver Reservas</a></li>
+                                   </s:url>">Reservas</a></li>
+                            <li><a href="<s:url action="pagos"><s:param name="dni" value="%{#session.dni}">
+                                       </s:param>
+                                   </s:url>">Pagos</a></li>
 
                             <li><a href="<s:url action="misDatos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
-                                   </s:url>">Ver Mis Datos</a></li>
+                                   </s:url>">Datos personales</a></li>
                             <li><a href="<s:url action="indexJugadores"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Mostrar jugadores</a></li>

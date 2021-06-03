@@ -32,8 +32,8 @@
 
                     <table border="2">
                         <tr align="center">
-                            <th>ACTIVIDAD</th>
-                            <th>FECHA</th>
+                            <td>ACTIVIDAD</td>
+                            <td>FECHA</td>
 
                             <td colspan="2">OPCIONES</td>
 

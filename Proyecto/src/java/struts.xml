@@ -29,10 +29,10 @@
         <action name="contacto">
             <result>/vista/contacto.jsp</result>  
         </action>
-        <action name="enviarContacto" class="actividades.Actions.email">
+       <action name="enviarContacto" class="actividades.Actions.email">
             <result name="success">/vista/sucessEmail.jsp</result> 
              <result name = "error">/vista/errorEmail.jsp</result> 
-        </action>
+        </action> 
     </package>
 
     <include file="login.xml" />    

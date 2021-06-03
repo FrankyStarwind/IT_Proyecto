@@ -32,10 +32,10 @@
 
                     <table border="2">
                         <tr align="center">
-                            <th>MÉTODO PAGO</th>
-                            <th>IMPORTE</th>
-                            <th>PAGADO</th> 
-                            <th>FECHA</th>                         
+                            <td>MÉTODO PAGO</td>
+                            <td>IMPORTE</td>
+                            <td>PAGADO</td> 
+                            <td>FECHA</td>                         
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">

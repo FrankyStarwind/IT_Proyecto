@@ -32,15 +32,15 @@
 
                     <table border="2">
                         <tr align="center">
-                            <th>USERNAME</th>
-                            <th>PASSWORD</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDOS</th>
-                            <th>DNI</th>
-                            <th>EMAIL</th>
-                            <th>TELÉFONO</th>
-                            <th>ADMINISTRADOR</th> 
-                            <th colspan="2">OPCIONES</th>
+                            <td>USERNAME</td>
+                            <td>PASSWORD</td>
+                            <td>NOMBRE</td>
+                            <td>APELLIDOS</td>
+                            <td>DNI</td>
+                            <td>EMAIL</td>
+                            <td>TELÉFONO</td>
+                            <td>ADMINISTRADOR</td> 
+                            <td colspan="2">OPCIONES</td>
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
