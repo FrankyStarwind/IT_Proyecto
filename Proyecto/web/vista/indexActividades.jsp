@@ -32,9 +32,9 @@
 
                     <table border="2">
                         <tr align="center">
-                            <td>ID</td>
-                            <td>SEDE</td>
-                            <td>NOMBRE</td>                        
+                            <th>ID</th>
+                            <th>SEDE</th>
+                            <th>NOMBRE</th>                        
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">

@@ -32,10 +32,10 @@
 
                     <table border="2">
                         <tr align="center">
-                            <td>Actividad</td>
-                            <td>Fecha</td>
+                            <th>ACTIVIDAD</th>
+                            <th>FECHA</th>
 
-                            <td colspan="2">Opciones</td>
+                            <td colspan="2">OPCIONES</td>
 
                         </tr>   
                         <s:iterator value="listaReserva">

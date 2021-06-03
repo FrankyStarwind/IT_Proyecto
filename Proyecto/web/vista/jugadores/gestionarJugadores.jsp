@@ -29,12 +29,12 @@
 
                 <table border="2">
                     <tr align="center">
-                        <td>id</td>
-                        <td>Nombre</td>
-                        <td>Edad</td>
-                        <td>Dorsal</td>
-                        <td>Equipo al que pertenece</td>
-                        <td>Opciones</td>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>EDAD</td>
+                        <td>DORSAL</td>
+                        <td>EQUIPO AL QUE PERTENECE</td>
+                        <td>OPCIONES</td>
                         <td> </td>
                     </tr>   
                     <s:iterator value="listaJugadores">

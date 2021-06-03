@@ -30,9 +30,9 @@
                     <!-- Section --> 
                     <h1>Cotacto</h1>
                     <s:form action="enviarContacto">
-                        <s:textfield name="correoMio" label="Correo" />
-                        <s:textfield name="asunto" label="Asunto" />
-                        <s:textarea name="comentario" label="Comentario"/>
+                        <s:textfield name="correoMio" label="CORREO" />
+                        <s:textfield name="asunto" label="ASUNTO" />
+                        <s:textarea name="comentario" label="COMENTARIO"/>
                         <s:submit value="Enviar"></s:submit>
                     </s:form>
                 </div>

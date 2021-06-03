@@ -8,83 +8,83 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
-    
-        <head>
-            <title>ACTIVIDADES DEPORTIVAS</title>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
-            <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
-            <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
-        </head>  
-        <body>
 
-            <!-- Wrapper -->
-            <div id="wrapper">
+    <head>
+        <title>ACTIVIDADES DEPORTIVAS</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
+        <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
+    </head>  
+    <body>
 
-                <!-- Main -->
-                <div id="main">
-                    <div class="inner">
+        <!-- Wrapper -->
+        <div id="wrapper">
 
-                        <!-- Header -->
-                        <%@include file="includes/include_header.jsp" %>                  
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
 
-                        <!-- Section -->         
-                        <h1>MIS DATOS</h1>
-                        <table border="2">
+                    <!-- Header -->
+                    <%@include file="includes/include_header.jsp" %>                  
+
+                    <!-- Section -->         
+                    <h1>MIS DATOS</h1>
+                    <table border="2">
+                        <tr align="center">
+                            <th>USERNAME</th>
+                            <th>PASSWORD</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDOS</th>
+                            <th>DNI</th>
+                            <th>EMAIL</th>
+                            <th>TELÉFONO</th>
+                            <th>ADMINISTRADOR</th>                      
+                        </tr>
+                        <s:iterator value="lista">
                             <tr align="center">
-                                <td>Username</td>
-                                <td>Password</td>
-                                <td>Nombre</td>
-                                <td>Apellidos</td>
-                                <td>Dni</td>
-                                <td>Email</td>
-                                <td>Telefono</td>
-                                <td>Administrador</td>                   
+                                <td><s:property value="userName"></s:property></td>
+                                <td><s:property value="password"></s:property></td>
+                                <td><s:property value="nombre"></s:property></td>
+                                <td><s:property value="apellidos"></s:property></td>
+                                <td><s:property value="dni"></s:property></td>
+                                <td><s:property value="email"></s:property></td>
+                                <td><s:property value="tlf"></s:property></td>
+                                <s:if test="admin != 0">
+                                    <td>Sí</td>                              
+                                </s:if>
+                                <s:else>
+                                    <td>No</td>
+                                </s:else>                                       
                             </tr>
-                            <s:iterator value="lista">
-                                <tr align="center">
-                                    <td><s:property value="userName"></s:property></td>
-                                    <td><s:property value="password"></s:property></td>
-                                    <td><s:property value="nombre"></s:property></td>
-                                    <td><s:property value="apellidos"></s:property></td>
-                                    <td><s:property value="dni"></s:property></td>
-                                    <td><s:property value="email"></s:property></td>
-                                    <td><s:property value="tlf"></s:property></td>
-                                    <s:if test="admin != 0">
-                                        <td>Sí</td>                              
-                                    </s:if>
-                                    <s:else>
-                                        <td>No</td>
-                                    </s:else>                                       
-                                </tr>
-                            </s:iterator>
-                        </table>
-                        <%@include file="includes/volver_index.jsp" %>
-                    </div>
+                        </s:iterator>
+                    </table>
+                    <%@include file="includes/volver_index.jsp" %>
                 </div>
-
-                <!-- Sidebar -->
-                <div id="sidebar">
-                    <div class="inner">
-
-                        <!-- Menu -->
-                        <%@include file="includes/include_menu.jsp" %>
-
-                        <!-- Section -->
-                        <%@include file="includes/include_menu_section.jsp" %>
-
-
-                        <!-- Footer -->
-                        <%@include file="includes/include_footer.jsp" %>
-
-                    </div>
-                </div>
-
             </div>
 
-            <!-- Scripts -->
-            <%@include file="includes/include_scripts.jsp" %>
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+
+                    <!-- Menu -->
+                    <%@include file="includes/include_menu.jsp" %>
+
+                    <!-- Section -->
+                    <%@include file="includes/include_menu_section.jsp" %>
 
 
-        </body>
-    </html>
+                    <!-- Footer -->
+                    <%@include file="includes/include_footer.jsp" %>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <%@include file="includes/include_scripts.jsp" %>
+
+
+    </body>
+</html>

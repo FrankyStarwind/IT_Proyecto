@@ -31,10 +31,10 @@
                     <h1>Cotacto</h1>
                     <b style="color:red;">Usuario o Clave no son correctos</b>
                     <s:form action="enviarContacto">
-                        <s:textfield name="correoMio" label="Correo" />
+                        <s:textfield name="correoMio" label="CORREO" />
 
-                        <s:textfield name="asunto" label="Asunto" />
-                        <s:textarea name="comentario" label="Comentario"/>
+                        <s:textfield name="asunto" label="ASUNTO" />
+                        <s:textarea name="comentario" label="COMENTARIO"/>
                         <s:submit value="Enviar"></s:submit>
                     </s:form>
 
