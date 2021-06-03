@@ -6,8 +6,8 @@
  
 <struts>
     <package name="reserva" extends="struts-default">   
-        <action name="reservaAlta" class="actividades.Actions.sede" >
-            <result name="success">/vista/sedeAlta.jsp</result>
+        <action name="reservaAlta" class="actividades.Actions.reserva" >
+            <result name="success">/vista/reservaAlta.jsp</result>
         </action>
         
         <action name="altaReserva" class="actividades.Actions.reserva" method="altaReserva" >

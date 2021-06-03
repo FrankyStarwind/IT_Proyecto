@@ -14,17 +14,16 @@
         <property name="importe" type="double">
             <column name="importe" precision="22" scale="0" not-null="true" />
         </property>
+                <many-to-one name="reserva" class="gestionActividades.Reserva" fetch="select" lazy="false">
+            <column name="idReservaFK" not-null="true" />
+        </many-to-one>
         <property name="pagado" type="double">
             <column name="pagado" precision="22" scale="0" not-null="true" />
         </property>
         <property name="fecha" type="timestamp">
             <column name="fecha" length="19" not-null="true" />
         </property>
-        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="idPagoFK" not-null="true" />
-            </key>
-            <one-to-many class="gestionActividades.Reserva" />
-        </set>
+        
+  
     </class>
 </hibernate-mapping>

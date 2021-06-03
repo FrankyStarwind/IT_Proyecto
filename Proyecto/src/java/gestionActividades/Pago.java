@@ -15,26 +15,26 @@ public class Pago  implements java.io.Serializable {
      private Integer id;
      private String metodoPago;
      private double importe;
-     private double pagado;
+     private int pagado;
      private Date fecha;
-     private Set reservas = new HashSet(0);
+  private Reserva reserva;
 
     public Pago() {
     }
 
 	
-    public Pago(String metodoPago, double importe, double pagado, Date fecha) {
+    public Pago(String metodoPago, double importe, int pagado, Date fecha) {
         this.metodoPago = metodoPago;
         this.importe = importe;
         this.pagado = pagado;
         this.fecha = fecha;
     }
-    public Pago(String metodoPago, double importe, double pagado, Date fecha, Set reservas) {
+    public Pago(String metodoPago, double importe, int pagado, Date fecha, Reserva reserva) {
        this.metodoPago = metodoPago;
        this.importe = importe;
        this.pagado = pagado;
        this.fecha = fecha;
-       this.reservas = reservas;
+       this.reserva = reserva;
     }
    
     public Integer getId() {
@@ -55,14 +55,14 @@ public class Pago  implements java.io.Serializable {
         return this.importe;
     }
     
-    public void setImporte(double importe) {
+    public void setImporte(int importe) {
         this.importe = importe;
     }
     public double getPagado() {
         return this.pagado;
     }
     
-    public void setPagado(double pagado) {
+    public void setPagado(int pagado) {
         this.pagado = pagado;
     }
     public Date getFecha() {
@@ -72,12 +72,13 @@ public class Pago  implements java.io.Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public Set getReservas() {
-        return this.reservas;
+
+    public Reserva getReserva() {
+        return reserva;
     }
-    
-    public void setReservas(Set reservas) {
-        this.reservas = reservas;
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 
 

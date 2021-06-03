@@ -91,6 +91,7 @@ public class login extends ActionSupport{
             if(u.getAdmin() == 0){ // si no es administrador
                 session.put("administrador", null);
                 session.put("usuario", u.getNombre() + " " + u.getApellidos());
+                session.put("dni",u.getDni());
             }
             session.put("dni", u.getDni());
             return SUCCESS;

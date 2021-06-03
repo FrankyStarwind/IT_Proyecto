@@ -15,11 +15,14 @@ import gestionActividades.Reserva;
 import gestionActividades.Sede;
 import gestionActividades.Usuario;
 import gestionActividades.actividadesDAO;
+import gestionActividades.equiposDAO;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.mail.internet.ParseException;
 
 /**
  *
@@ -28,23 +31,88 @@ import java.util.Set;
 public class reserva extends ActionSupport {
 
     private Integer id;
+    private Integer idActividad;
+     private Integer idEq1;
+      private Integer idEq2;
     private Pago pago;
     private Usuario usuario;
     private Actividad actividad;
     private Equipo idEquipoDosFK;
      private Equipo idEquipoUnoFK;
+    private String fecha;
+    private Date fechaD;
     
-    private Date fecha;
+List<String> listaPago;
+
+    
+    private String tipoPago;
 
     //VARIABLES GENERALES
     List<Reserva> listaReserva = new ArrayList<>();
-      List<Actividad> listaAc = new ArrayList<>();
+     private  List<Actividad> listaAc;
+      private  List<Equipo> listaEq1;
+       private  List<Equipo> listaEq2;
 
     Usuario usu = new Usuario();
     Map session = (Map) ActionContext.getContext().get("session");
 
     private actividadesDAO a = new actividadesDAO();
+    private equiposDAO b = new equiposDAO();
 
+        public  Date ParseFecha(String fecha) throws java.text.ParseException
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      
+        fechaD = formato.parse(fecha);
+        return fechaD;
+    }
+  public String getDefaultPago() {
+        return "PAYPAL";
+    }
+    public List<String> getListaPago() {
+        listaPago = new ArrayList<String>();
+        listaPago.add("PAYPAL");
+        listaPago.add("TARJETA");
+        listaPago.add("BIZUM");
+        return listaPago;
+    }
+
+    public void setListaPago(List<String> listaPago) {
+        this.listaPago = listaPago;
+    }
+
+    public Integer getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(Integer idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public Integer getIdEq1() {
+        return idEq1;
+    }
+
+    public void setIdEq1(Integer idEq1) {
+        this.idEq1 = idEq1;
+    }
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        this.tipoPago = tipoPago;
+    }
+
+    public Integer getIdEq2() {
+        return idEq2;
+    }
+
+    public void setIdEq2(Integer idEq2) {
+        this.idEq2 = idEq2;
+    }
+        
     public Map getSession() {
         return session;
     }
@@ -101,13 +169,7 @@ public class reserva extends ActionSupport {
         this.actividad = actividad;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
 
     public List<Reserva> getListaReserva() {
         return listaReserva;
@@ -116,6 +178,50 @@ public class reserva extends ActionSupport {
     public void setListaReserva(List<Reserva> listaReserva) {
         this.listaReserva = listaReserva;
     }
+
+    public List<Equipo> getListaEq1() {
+        return listaEq1 = b.consultaTodosLosEquipos();
+    }
+
+    public void setListaEq1(List<Equipo> listaEq1) {
+        this.listaEq1 = listaEq1;
+    }
+
+    public List<Equipo> getListaEq2() {
+        return listaEq2 =  b.consultaTodosLosEquipos();
+    }
+
+    public void setListaEq2(List<Equipo> listaEq2) {
+        this.listaEq2 = listaEq2;
+    }
+    
+
+    public List<Actividad> getListaAc() {
+     
+        return listaAc=a.consultaActividades();
+    }
+
+    public void setListaAc(List<Actividad> listaAc) {
+        this.listaAc = listaAc;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getFechaD() {
+        return fechaD;
+    }
+
+    public void setFechaD(Date fechaD) {
+        this.fechaD = fechaD;
+    }
+    
+    
 
     public Usuario getUsu() {
         return usu;
@@ -127,13 +233,21 @@ public class reserva extends ActionSupport {
 
     public String listaReserva() {
         listaReserva = a.consultalistaReserva();
-        listaAc = a.consultaActividades();
+      
         return SUCCESS;
     }
 
     public String altaReserva() throws Exception {
-        Reserva re = new Reserva(pago, usuario, fecha, actividad,idEquipoUnoFK,idEquipoDosFK);
+        usuario = a.busquedaUsuarioPorDni((String) session.get("dni")).get(0);
+        ParseFecha(fecha);
+        actividad = a.buscarACtividadId(idActividad).get(0);
+        idEquipoUnoFK= b.busquedaEquipoPorId(idEq1);
+        idEquipoDosFK= b.busquedaEquipoPorId(idEq2);
+        Reserva re = new Reserva( usuario, fechaD, actividad,idEquipoUnoFK,idEquipoDosFK);
         a.insertarReserva(re);
+        
+        Pago p = new Pago(tipoPago, actividad.getPrecio(), 1, new Date(), re);
+        listaReserva();
         return SUCCESS;
     }
 
@@ -153,7 +267,7 @@ public class reserva extends ActionSupport {
     }
 
     public String editReservaF() throws Exception {
-        Reserva r = new Reserva(id, pago, usuario, fecha, actividad);
+        Reserva r = new Reserva(id, usuario, fechaD, actividad);
 
         a.editarReserva(r);
 

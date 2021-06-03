@@ -14,7 +14,7 @@ public class Actividad  implements java.io.Serializable {
 
      private Integer id;
 
-
+private Double precio;
      private Sede sede;
      private String nombre;
  
@@ -23,20 +23,21 @@ public class Actividad  implements java.io.Serializable {
     public Actividad() {
     }
 
-	
-    public Actividad( Sede sede, String nombre, Date fecha, String hora) {
 
- 
-        this.sede = sede;
-        this.nombre = nombre;
-     
-    }
-    public Actividad(Sede sede, String nombre) {
+    public Actividad(Sede sede, String nombre,Double precio) {
 
-
+this.precio=precio;
        this.sede = sede;
        this.nombre = nombre;
 
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
    
     public Integer getId() {

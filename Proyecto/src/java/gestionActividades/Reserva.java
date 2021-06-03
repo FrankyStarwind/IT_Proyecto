@@ -11,7 +11,7 @@ import java.util.Set;
 public class Reserva implements java.io.Serializable {
 
     private Integer id;
-    private Pago pago;
+ 
     private Usuario usuario;
     private Actividad actividad;
          private Equipo equipoByIdEquipoUnoFk;
@@ -21,23 +21,23 @@ public class Reserva implements java.io.Serializable {
     public Reserva() {
     }
 
-    public Reserva(Pago pago, Usuario usuario, Date fecha) {
-        this.pago = pago;
+    public Reserva( Usuario usuario, Date fecha) {
+   
         this.usuario = usuario;
         this.fecha = fecha;
     }
 
-    public Reserva(Pago pago, Usuario usuario, Date fecha, Actividad actividad,Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk) {
-        this.pago = pago;
+    public Reserva(Usuario usuario, Date fecha, Actividad actividad,Equipo equipoByIdEquipoUnoFk, Equipo equipoByIdEquipoDosFk) {
+    
         this.usuario = usuario;
         this.fecha = fecha;
         this.actividad = actividad;
-                this.equipoByIdEquipoUnoFk = equipoByIdEquipoUnoFk;
+        this.equipoByIdEquipoUnoFk = equipoByIdEquipoUnoFk;
         this.equipoByIdEquipoDosFk = equipoByIdEquipoDosFk;
     }
 
-    public Reserva(Integer id, Pago pago, Usuario usuario, Date fecha, Actividad actividad) {
-        this.pago = pago;
+    public Reserva(Integer id,  Usuario usuario, Date fecha, Actividad actividad) {
+       
         this.usuario = usuario;
         this.fecha = fecha;
         this.actividad = actividad;
@@ -75,13 +75,7 @@ public class Reserva implements java.io.Serializable {
         this.id = id;
     }
 
-    public Pago getPago() {
-        return this.pago;
-    }
 
-    public void setPago(Pago pago) {
-        this.pago = pago;
-    }
 
     public Usuario getUsuario() {
         return this.usuario;

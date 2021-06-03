@@ -34,7 +34,7 @@
                         <h2>Bienvenido <s:property value="#session.usuario" /></h2>
                         <ul>
                             
-                            <li><a href="<s:url action="reservas"><s:param name="dni" value="%{#session.dni}">
+                            <li><a href="<s:url action="indexReserva"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Reservas</a></li>
                             <li><a href="<s:url action="misPagos"><s:param name="dni" value="%{#session.dni}">

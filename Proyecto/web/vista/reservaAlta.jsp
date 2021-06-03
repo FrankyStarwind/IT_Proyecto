@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="/struts-dojo-tags" prefix="sx"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +16,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />        
         <link rel="stylesheet" href="<%=request.getContextPath()%>/vista/assets/css/main.css" type="text/css"/>
-        <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />      
+        <link rel="shortcut icon" href="<%=request.getContextPath()%>/vista/images/icono.ico" />    
+        <sx:head  />  
     </head>  
     <body>
 
@@ -31,11 +34,31 @@
                     <!-- Section -->
                     <h1>Alta Reserva</h1>
                     <s:form action="altaReserva">
-                          <s:textfield name="fecha" label="FECHA" />
                         
-                        <s:select label="listaAc"          
-                                  list="listaAc"
-                                  name="listaAc" />
+                        <s:textfield name="fecha" label="Fecha y Hora (yyyy-MM-dd HH:mm:ss)" />
+
+
+                        <s:select label="ACTIVIDADES" 
+                                  headerValue="Seleccione ..." 
+                                  name="idActividad"   listKey="id" listValue="nombre" 
+                                  list="listaAc" />
+                        
+                             <s:select label="EQUIPO 1" 
+                                  headerValue="Seleccione ..." 
+                                  name="idEq1"   listKey="id" listValue="nombre" 
+                                  list="listaEq1" />
+                             
+                                  <s:select label="EQUIPO 2" 
+                                  headerValue="Seleccione ..." 
+                                  name="idEq2"   listKey="id" listValue="nombre" 
+                                  list="listaEq2" />
+                                  
+                                <s:select label="TIPO PAGO" 
+ headerValue="Seleccione ..."
+        list="listaPago" 
+        name="tipoPago" 
+/>
+
 
 
 

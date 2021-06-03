@@ -28,7 +28,7 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section --> 
-                    <h1>Listado de Sedes</h1>
+                    <h1>Listado de Reservas</h1>
 
                     <table border="2">
                         <tr align="center">
@@ -40,7 +40,7 @@
                         </tr>   
                         <s:iterator value="listaReserva">
                             <tr align="center">
-                                <td><s:property value="actividad"></s:property></td>
+                                <td><s:property value="actividad.nombre"></s:property></td>
                                 <td><s:property value="fecha"></s:property></td>
 
 
