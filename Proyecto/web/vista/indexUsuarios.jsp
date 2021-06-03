@@ -76,7 +76,7 @@
                         <tr>
                             <td>
                                 <s:form action="usuarioAlta">
-                                    <s:submit value="Insertar Usuario"></s:submit>
+                                    <s:submit value="Crear Usuario"></s:submit>
                                 </s:form>
                             </td>                        
                             <s:form action="buscarUsuario">

@@ -68,7 +68,7 @@
                         <tr>
                             <td>
                                 <s:form action="altaJugador">
-                                    <s:submit value="Insertar Jugador"></s:submit>
+                                    <s:submit value="Crear Jugador"></s:submit>
                                 </s:form>
                             </td>
                         </tr>

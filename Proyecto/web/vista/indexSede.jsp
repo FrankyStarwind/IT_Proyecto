@@ -70,7 +70,7 @@
                         <tr>
                             <td>
                                 <s:form action="sedeAlta">
-                                    <s:submit value="Insertar Sede"></s:submit>
+                                    <s:submit value="Crear Sede"></s:submit>
                                 </s:form>
                             </td>
                         </tr>

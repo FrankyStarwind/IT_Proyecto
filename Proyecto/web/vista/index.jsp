@@ -37,7 +37,7 @@
                             <li><a href="<s:url action="reservas"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Reservas</a></li>
-                            <li><a href="<s:url action="pagos"><s:param name="dni" value="%{#session.dni}">
+                            <li><a href="<s:url action="misPagos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Pagos</a></li>
 

@@ -64,7 +64,7 @@
                         <tr>
                             <td>
                                 <s:form action="reservaAlta">
-                                    <s:submit value="Insertar Reserva"></s:submit>
+                                    <s:submit value="Crear Reserva"></s:submit>
                                 </s:form>
                             </td>
 

@@ -1,13 +1,13 @@
 <%-- 
-    Document   : indexPagos
-    Created on : 16-may-2021, 21:02:22
+    Document   : visualizarPagoUsuario
+    Created on : 03-jun-2021, 11:05:03
     Author     : Laura
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%><%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>ACTIVIDADES DEPORTIVAS</title>
         <meta charset="utf-8" />
@@ -27,17 +27,15 @@
                     <!-- Header -->
                     <%@include file="includes/include_header.jsp" %>                  
 
-                    <!-- Section --> 
-                    <h1>Listado de Pagos</h1>
-
+                    <!-- Section -->         
+                    <h1>MIS PAGOS</h1>
                     <table border="2">
                         <tr align="center">
                             <td>MÉTODO PAGO</td>
                             <td>IMPORTE</td>
                             <td>PAGADO</td> 
-                            <td>FECHA</td>     
-                            <td colspan="2">OPCIONES</td>
-                        </tr>   
+                            <td>FECHA</td>              
+                        </tr>
                         <s:iterator value="lista">
                             <tr align="center">
                                 <td><s:property value="metodoPago"></s:property></td>
@@ -48,38 +46,9 @@
                                 <s:else>
                                     <td>No</td>
                                 </s:else>   
-                                <td><s:property value="fecha"></s:property></td>
-                                    <td>
-                                    <s:form action="eliminarPago">
-                                        <s:submit value="Eliminar"></s:submit>
-                                        <s:hidden name="dni" value="%{dni}"/>
-                                    </s:form>
-                                </td>
-                                <td>
-                                    <s:form action="editPago">
-                                        <s:submit value="Editar"></s:submit>
-                                        <s:hidden name="dni" value="%{dni}"/>
-                                    </s:form>
-                                </td>  
+                                <td><s:property value="fecha"></s:property></td>                                      
                             </tr>
                         </s:iterator>
-                    </table>
-                    <table border='1'>
-                        <tr>
-                            <td>
-                                <s:form action="pagoAlta">
-                                    <s:submit value="Crear Pago"></s:submit>
-                                </s:form>
-                            </td>                        
-                            <s:form action="buscarPago">
-                                <td><s:textfield name="dni" label="Introduzca Dni a buscar: "></s:textfield>
-                                    <s:hidden name="dni" value="%{dni}"/>
-                                </td>
-                                <td> 
-                                    <s:submit value="Buscar"></s:submit>
-                                    </td>                                
-                            </s:form>                            
-                        </tr>      
                     </table>
                     <%@include file="includes/volver_index.jsp" %>
                 </div>

@@ -88,12 +88,12 @@ public class pago extends ActionSupport{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-   /*public String visualizarPagoUsuario() throws Exception {
+    public String visualizarPagosUsuario() throws Exception {
         //Consultamos y devolvemos los datos del usuario
         lista = A.busquedaPagoPorDni(this.getId());
 
         return SUCCESS;
-    }*/
+    }
     
     public String execute() throws Exception {
         //Consultamos y devolvemos una lista con todos los pagos
