@@ -32,7 +32,7 @@
 
                     <table border="2">
                         <tr align="center">
-                            <td>ID</td>
+                        
                             <td>SEDE</td>
                             <td>NOMBRE</td> 
                             <td>PRECIO</td>   
@@ -40,7 +40,7 @@
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
-                                <td><s:property value="id"></s:property></td> 
+                         
                                 <td><s:property value="sede.nombre"></s:property></td>
                                 <td><s:property value="nombre"></s:property></td>
                                 <td><s:property value="precio"></s:property></td>
@@ -59,7 +59,7 @@
                             </tr>
                         </s:iterator>
                     </table>
-                    </table>
+                    
                     <table border='1' style="text-align: center">
                         <tr>
                             <td>

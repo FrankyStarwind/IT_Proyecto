@@ -248,7 +248,7 @@ public class actividadesDAO {
     public List<Sede> buscarSedeNombre(String nombre) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Sede where nombre like '" + nombre + "'");
+        Query q1 = s1.createQuery("From Sede where nombre = '" + nombre + "'");
         List<Sede> list = q1.list();
         tx.commit();
         return list;
@@ -287,14 +287,7 @@ public class actividadesDAO {
         s1.getTransaction().commit();
     }
 
-    public List<Actividad> buscarActividadNombreFiltro(String nombreActividad) {
-       s1 = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Actividad where nombre like '" + nombreActividad + "' and activo=1");
-        List<Actividad> listActivi = q1.list();
-        tx.commit();
-        return listActivi;
-    }
+
 
 
 

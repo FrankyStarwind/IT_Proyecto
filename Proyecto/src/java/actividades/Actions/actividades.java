@@ -31,6 +31,7 @@ public class actividades extends ActionSupport {
     private int activo;
   private Double precio;
    private List<Sede> listaSede;
+   private List<Actividad> lista;
 
     public Integer getIdSede() {
         return idSede;
@@ -63,7 +64,7 @@ public class actividades extends ActionSupport {
     private actividadesDAO a = new actividadesDAO();
     Actividad act = new Actividad();
 
-    List<Actividad> lista = new ArrayList<>();
+    
 
     public actividades() {
     }
@@ -156,7 +157,7 @@ public class actividades extends ActionSupport {
 
     public String editActividadF() throws Exception {
          sede = a.buscarSede(idSede).get(0);
-        Actividad ac = new Actividad(id, sede, nombre, precio, activo);
+        Actividad ac = new Actividad(id, sede, nombre, precio, 1);
 
         a.editarActividad(ac);
 
@@ -167,9 +168,10 @@ public class actividades extends ActionSupport {
 
     public String buscarActividad() {
 
-        lista = a.buscarActividadNombreFiltro(nombreActividad);
-        nombreActividad = "";
+        lista = a.buscarACtividadNombre(nombreActividad);
+    
         return SUCCESS;
     }
+
 
 }

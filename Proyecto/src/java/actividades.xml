@@ -24,7 +24,7 @@
             <result name="success">/vista/indexActividades.jsp</result>
         </action>
         <action name="editActividad" class="actividades.Actions.actividades" method="editActividad">
-            <result name="success">/vista/editActividades.jsp</result>
+            <result name="success">/vista/editActividad.jsp</result>
         </action>
         <action name="editActividadF" class="actividades.Actions.actividades" method="editActividadF">
             <result name="success">/vista/indexActividades.jsp</result>
@@ -32,5 +32,9 @@
         <action name="buscarActividad" class="actividades.Actions.actividades" method="buscarActividad">
             <result name="success">/vista/indexActividades.jsp</result>        
         </action>
+                <action name="mostrarActividades" class="actividades.Actions.actividades" method="listaActividades">
+            <result name="success">/vista/indexActividad.jsp</result>        
+        </action>
+        
     </package>
 </struts>
