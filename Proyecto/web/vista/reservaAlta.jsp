@@ -34,7 +34,7 @@
                     <!-- Section -->
                     <h1>Alta Reserva</h1>
                     <s:form action="altaReserva">
-                        
+
                         <s:textfield name="fecha" label="Fecha y Hora (yyyy-MM-dd HH:mm:ss)" />
 
 
@@ -42,22 +42,22 @@
                                   headerValue="Seleccione ..." 
                                   name="idActividad"   listKey="id" listValue="nombre" 
                                   list="listaAc" />
-                        
-                             <s:select label="EQUIPO 1" 
+
+                        <s:select label="EQUIPO 1" 
                                   headerValue="Seleccione ..." 
                                   name="idEq1"   listKey="id" listValue="nombre" 
                                   list="listaEq1" />
-                             
-                                  <s:select label="EQUIPO 2" 
+
+                        <s:select label="EQUIPO 2" 
                                   headerValue="Seleccione ..." 
                                   name="idEq2"   listKey="id" listValue="nombre" 
                                   list="listaEq2" />
-                                  
-                                <s:select label="TIPO PAGO" 
- headerValue="Seleccione ..."
-        list="listaPago" 
-        name="tipoPago" 
-/>
+
+                        <s:select label="TIPO PAGO" 
+                                  headerValue="Seleccione ..."
+                                  list="listaPago" 
+                                  name="tipoPago" 
+                                  />
 
 
 

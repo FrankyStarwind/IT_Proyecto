@@ -19,6 +19,9 @@
                <property name="precio" type="double" >
             <column name="precio" length="100" not-null="true" />
         </property>
+                  <property name="activo" type="int" >
+            <column name="activo" length="10" not-null="true" />
+        </property>
 
     </class>
 </hibernate-mapping>

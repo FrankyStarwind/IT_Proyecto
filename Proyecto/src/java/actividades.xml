@@ -6,8 +6,31 @@
  
 <struts>
     <package name="actividades" extends="struts-default"> 
-        <action name="mostrarActividades" class="actividades.Actions.actividades" >
+        
+        <action name="indexActividades" class="actividades.Actions.actividades" method="listaActividades">
             <result name="success">/vista/indexActividades.jsp</result>
+        </action>
+        
+        <action name="actividadAlta" class="actividades.Actions.actividades" >
+            <result name="success">/vista/actividadAlta.jsp</result>
+        </action>
+        
+        <action name="altaActividad" class="actividades.Actions.actividades" method="altaActividad" >
+            <result name="success">/vista/indexActividades.jsp</result>
+        </action>
+
+        
+        <action name="eliminarActividad" class="actividades.Actions.actividades" method="desactivarActividad">
+            <result name="success">/vista/indexActividades.jsp</result>
+        </action>
+        <action name="editActividad" class="actividades.Actions.actividades" method="editActividad">
+            <result name="success">/vista/editActividades.jsp</result>
+        </action>
+        <action name="editActividadF" class="actividades.Actions.actividades" method="editActividadF">
+            <result name="success">/vista/indexActividades.jsp</result>
+        </action>
+        <action name="buscarActividad" class="actividades.Actions.actividades" method="buscarActividad">
+            <result name="success">/vista/indexActividades.jsp</result>        
         </action>
     </package>
 </struts>

@@ -44,6 +44,16 @@ public class Reserva implements java.io.Serializable {
         this.id = id;
     }
 
+    public Reserva(Integer id, Usuario usuario, Date fechaD, Actividad actividad, Equipo idEquipoUnoFK, Equipo idEquipoDosFK) {
+ 
+      this.id=id;
+        this.usuario = usuario;
+        this.fecha = fechaD;
+        this.actividad = actividad;
+        this.equipoByIdEquipoUnoFk = idEquipoUnoFK;
+        this.equipoByIdEquipoDosFk = idEquipoDosFK;
+    }
+
         public Equipo getEquipoByIdEquipoUnoFk() {
         return this.equipoByIdEquipoUnoFk;
     }
