@@ -26,6 +26,9 @@
         <property name="provincia" type="string">
             <column name="provincia" not-null="true" />
         </property>
+                       <property name="activo" type="int" >
+            <column name="activo" length="10" not-null="true" />
+        </property>
         <set name="actividads" table="actividad" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idSedeFK" not-null="true" />

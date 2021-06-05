@@ -157,7 +157,7 @@ public class actividades extends ActionSupport {
 
     public String editActividadF() throws Exception {
          sede = a.buscarSede(idSede).get(0);
-        Actividad ac = new Actividad(id, sede, nombre, precio, 1);
+        Actividad ac = new Actividad(id, sede, nombre, precio, activo);
 
         a.editarActividad(ac);
 
@@ -170,6 +170,10 @@ public class actividades extends ActionSupport {
 
         lista = a.buscarACtividadNombre(nombreActividad);
     
+        return SUCCESS;
+    }
+        public String listaActividadesGeneral() throws Exception {
+        lista = a.consultaActividadesGeneral();
         return SUCCESS;
     }
 

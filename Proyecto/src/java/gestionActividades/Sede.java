@@ -18,19 +18,29 @@ public class Sede  implements java.io.Serializable {
      private String tlf;
      private String email;
      private String provincia;
+     private int activo;
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
      private Set actividads = new HashSet(0);
 
     public Sede() {
     }
 
 	
-    public Sede(String nombre, String direccion, int cp, String tlf, String email, String provincia) {
+    public Sede(String nombre, String direccion, int cp, String tlf, String email, String provincia,int ac) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.cp = cp;
         this.tlf = tlf;
         this.email = email;
         this.provincia = provincia;
+        this.activo=ac;
     }
     public Sede(String nombre, String direccion, int cp, String tlf, String email, String provincia, Set actividads) {
        this.nombre = nombre;
@@ -42,7 +52,7 @@ public class Sede  implements java.io.Serializable {
        this.actividads = actividads;
     }
 
-    public Sede(int id, String nombre, String direccion, int cp, String tlf, String email, String provincia) {
+    public Sede(int id, String nombre, String direccion, int cp, String tlf, String email, String provincia,int ac) {
         this.id=id;
         this.nombre = nombre;
        this.direccion = direccion;
@@ -50,6 +60,7 @@ public class Sede  implements java.io.Serializable {
        this.tlf = tlf;
        this.email = email;
        this.provincia = provincia;
+       this.activo=ac;
        this.actividads = actividads;
     }
 

@@ -99,7 +99,7 @@ public class actividadesDAO {
     public List<Sede> consultaSedes() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Sede");
+        Query q1 = s1.createQuery("from Sede ");
         List<Sede> lista = (List<Sede>) q1.list();
         tx.commit();
         return lista;
@@ -117,7 +117,7 @@ public class actividadesDAO {
     public List<Sede> buscarSede(int id) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Sede where id = " + id + "");
+        Query q1 = s1.createQuery("From Sede where id = " + id + " ");
         List<Sede> listSede = q1.list();
         tx.commit();
         return listSede;
@@ -184,7 +184,7 @@ public class actividadesDAO {
     public List<Actividad> consultaActividades() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Actividad where activo=1");
+        Query q1 = s1.createQuery("from Actividad");
         List<Actividad> lista = (List<Actividad>) q1.list();
         tx.commit();
         return lista;
@@ -193,7 +193,7 @@ public class actividadesDAO {
     public List<Actividad> buscarACtividadId(Integer id) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Actividad where id = " + id + " and activo=1");
+        Query q1 = s1.createQuery("From Actividad where id = " + id + "");
         List<Actividad> listActivi = q1.list();
         tx.commit();
         return listActivi;
@@ -248,7 +248,7 @@ public class actividadesDAO {
     public List<Sede> buscarSedeNombre(String nombre) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Sede where nombre = '" + nombre + "'");
+        Query q1 = s1.createQuery("From Sede where nombre = '" + nombre + "' and activo=1");
         List<Sede> list = q1.list();
         tx.commit();
         return list;
@@ -285,6 +285,26 @@ public class actividadesDAO {
         s1.update(ac);
 
         s1.getTransaction().commit();
+    }
+
+    public void desactivarSede(Sede se) {
+
+    s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(se);
+
+        s1.getTransaction().commit();
+    }
+
+    public List<Actividad> consultaActividadesGeneral() {
+             s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Actividad where activo=1");
+        List<Actividad> lista = (List<Actividad>) q1.list();
+        tx.commit();
+        return lista;
     }
 
 

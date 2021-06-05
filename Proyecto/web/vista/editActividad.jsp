@@ -28,6 +28,7 @@
                            
                               <s:textfield name="nombre" label="NOMBRE" value="%{nombre}" />
                                 <s:textfield name="precio" label="PRECIO" value="%{precio}" />
+                                 <s:textfield name="activo" label="ACTIVO" value="%{activo}" />
                     
                         <s:select label="SEDE" 
                                   headerValue="Seleccione ..." 

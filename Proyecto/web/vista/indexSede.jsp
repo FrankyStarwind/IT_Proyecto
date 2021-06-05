@@ -38,6 +38,7 @@
                             <td>CP</td>
                             <td>EMAIL</td>
                             <td>PROVINCIA</td>
+                             <td>ACTIVO</td>
                             <td colspan="2">OPCIONES</td>
 
                         </tr>   
@@ -49,7 +50,7 @@
                                 <td><s:property value="cp"></s:property></td>
                                 <td><s:property value="email"></s:property></td>
                                 <td><s:property value="provincia"></s:property></td>
-
+<td><s:property value="activo"></s:property></td>
                                     <td>
                                     <s:form action="eliminarSede">
                                         <s:submit value="Eliminar"></s:submit>

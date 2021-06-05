@@ -29,6 +29,7 @@ public class sede extends ActionSupport {
 
     private String direccion;
     private int cp;
+    private int activo;
 
     private String provincia;
     
@@ -49,6 +50,14 @@ public class sede extends ActionSupport {
 
     public void setNombreSede(String nombreSede) {
         this.nombreSede = nombreSede;
+    }
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
     }
 
     public String getNombre() {
@@ -140,14 +149,16 @@ public class sede extends ActionSupport {
     }
 
     public String altaSede() throws Exception {
-        Sede se = new Sede(nombre, direccion, cp, tlf, email, provincia);
+        Sede se = new Sede(nombre, direccion, cp, tlf, email, provincia,1);
         a.insertarSede(se);
         return SUCCESS;
     }
 
-    public String eliminarSede() throws Exception {
-
-        a.eliminarSede(id);
+    public String desactivarSede() throws Exception {
+     Sede sede = a.buscarSede(id).get(0);
+        Sede se = new Sede(sede.getId(), sede.getNombre(), sede.getDireccion(), sede.getCp(),sede.getTlf(),sede.getEmail(),sede.getProvincia(), 0);
+        a.desactivarSede(se);
+      
         listaSede = a.consultaSedes();
 
         return SUCCESS;
@@ -161,7 +172,7 @@ public class sede extends ActionSupport {
     }
 
     public String editSedeF() throws Exception {
-        Sede s = new Sede(id,nombre, direccion, cp, tlf, email, provincia);
+        Sede s = new Sede(id,nombre, direccion, cp, tlf, email, provincia,activo);
         System.out.println(s);
         a.editarSede(s);
 
