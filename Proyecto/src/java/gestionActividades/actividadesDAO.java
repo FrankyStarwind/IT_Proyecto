@@ -6,6 +6,7 @@ package gestionActividades;
  * and open the template in the editor.
  */
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -77,10 +78,43 @@ public class actividadesDAO {
         return lista;
     }
 
-    public List<Pago> busquedaPagoPorDni(int id) {
+    public List<Pago> busquedaPagoPorId(int id) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Usuario where id='" + id + "'");
+        Query q1 = s1.createQuery("from Pago where id='" + id + "'");
+        List<Pago> lista = (List<Pago>) q1.list();
+        tx.commit();
+        return lista;
+    }
+
+    public void insertarPago(Pago pago) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        s1.save(pago);
+        tx.commit();
+    }
+
+    public void editarPago(Pago pago) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(pago);
+
+        s1.getTransaction().commit();
+    }
+
+    public void eliminarPago(int id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        s1.createSQLQuery("delete from Pago where id='" + id + "'").executeUpdate();
+        tx.commit();
+    }
+
+    public List<Pago> busquedaPagoPorDni(String dni) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Usuario where dni='" + dni + "'");
         List<Pago> lista = (List<Pago>) q1.list();
         tx.commit();
         return lista;
@@ -208,25 +242,6 @@ public class actividadesDAO {
         return listaP;
     }
 
-    public void insertarPago(Pago p) {
-        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        s1.beginTransaction();
-
-        s1.save(p);
-
-        s1.getTransaction().commit();
-    }
-
-    public void eliminarPago(Integer id) {
-        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
-        s1.beginTransaction();
-
-        s1.createSQLQuery("delete from Pago where id=" + id + "").executeUpdate();
-
-        s1.getTransaction().commit();
-    }
-
     public List<Reserva> buscarActidadReserva(int id) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
@@ -265,7 +280,7 @@ public class actividadesDAO {
     }
 
     public void desactivarActividad(Actividad ac) {
-    s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
 
         s1.beginTransaction();
 
@@ -275,10 +290,8 @@ public class actividadesDAO {
 
     }
 
-
-
     public void editarActividad(Actividad ac) {
-            s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
 
         s1.beginTransaction();
 
@@ -289,7 +302,7 @@ public class actividadesDAO {
 
     public void desactivarSede(Sede se) {
 
-    s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
 
         s1.beginTransaction();
 
@@ -299,7 +312,7 @@ public class actividadesDAO {
     }
 
     public List<Actividad> consultaActividadesGeneral() {
-             s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("from Actividad where activo=1");
         List<Actividad> lista = (List<Actividad>) q1.list();
@@ -307,8 +320,39 @@ public class actividadesDAO {
         return lista;
     }
 
+    public List<Reserva> buscarReservaPorIdReservaFK(int idReservaFk) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Reserva where id = '" + idReservaFk + "'");
+        List<Reserva> list = q1.list();
+        tx.commit();
+        return list;
 
+    }
 
+    public List<Reserva> buscarReservaUserName(String userName) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Reserva where usuarioFK = '" + userName + "'");
+        List<Reserva> list = q1.list();
+        tx.commit();
+        return list;
+    }
 
+    public List<Pago> buscarPagoPorUsuario(List<Reserva> listaReservas) {
+        List<Pago> listaPagos = new ArrayList<Pago>();
+        for (Reserva r : listaReservas) {
+            s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction tx = s1.beginTransaction();
+            Query q1 = s1.createQuery("from Pago where idReservaFk = '" + r.getId() + "'");
+            Pago p = (Pago) q1.uniqueResult();
+            tx.commit();
+            if(p != null){   
+              listaPagos.add(p);
+            }
+        }
+        return listaPagos;
+
+    }
 
 }

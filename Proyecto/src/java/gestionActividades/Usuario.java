@@ -2,6 +2,7 @@ package gestionActividades;
 // Generated 16-may-2021 10:37:05 by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,6 +46,10 @@ public class Usuario  implements java.io.Serializable {
        this.tlf = tlf;
        this.admin = admin;
        this.reservas = reservas;
+    }
+
+    public Usuario(String metodoPago, double importe, double pagado, Date fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     public String getUserName() {

@@ -27,8 +27,9 @@ public class usuario extends ActionSupport {
     private String email;
     private String tlf;
     private double admin;
-    
+
     private String adminS;
+    private Integer idBuscar;
 
     //VARIABLES GENERALES
     List<Usuario> lista = new ArrayList<>();
@@ -126,15 +127,14 @@ public class usuario extends ActionSupport {
     }
 
     public String altaUsuario() throws Exception {
-        if(adminS.equals("Si")){
+        if (adminS.equals("Si")) {
             admin = 1;
-        }
-        else{
+        } else {
             admin = 0;
         }
         Usuario usu = new Usuario(userName, password, nombre, apellidos, dni, email, tlf, admin);
         a.insertarUsuario(usu);
-        
+
         lista = a.consultaTodosUsuarios();
         return SUCCESS;
     }
@@ -146,25 +146,33 @@ public class usuario extends ActionSupport {
 
         return SUCCESS;
     }
+
+    public Integer getIdBuscar() {
+        return idBuscar;
+    }
+
+    public void setIdBuscar(Integer idBuscar) {
+        this.idBuscar = idBuscar;
+    }
+
     public String buscarUsuario() throws Exception {
 
         lista = a.busquedaUsuarioPorDni(this.getDni());
-        lista = a.consultaTodosUsuarios();
+        dni = "";
         return SUCCESS;
     }
 
     public String editUsuario() throws Exception {
 
         lista = a.busquedaUsuarioPorDni(dni);
-
+        idBuscar = null;
         return SUCCESS;
     }
 
     public String editUsuarioF() throws Exception {
-        if(adminS.equals("Si") || adminS.equals("1.0")){
+        if (adminS.equals("Si") || adminS.equals("1.0")) {
             admin = 1;
-        }
-        else{
+        } else {
             admin = 0;
         }
         Usuario usu = new Usuario(userName, password, nombre, apellidos, dni, email, tlf, admin);

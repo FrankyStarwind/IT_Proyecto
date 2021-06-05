@@ -32,14 +32,17 @@
 
                     <table border="2">
                         <tr align="center">
+                            <td>ID</td>
                             <td>MÉTODO PAGO</td>
                             <td>IMPORTE</td>
                             <td>PAGADO</td> 
-                            <td>FECHA</td>     
+                            <td>FECHA</td>  
+                            <td>USUARIO</td>
                             <td colspan="2">OPCIONES</td>
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
+                                <td><s:property value="id"></s:property></td>
                                 <td><s:property value="metodoPago"></s:property></td>
                                 <td><s:property value="importe"></s:property></td>
                                 <s:if test="pagado != 0">
@@ -47,18 +50,19 @@
                                 </s:if>
                                 <s:else>
                                     <td>No</td>
-                                </s:else>   
-                                <td><s:property value="fecha"></s:property></td>
+                                </s:else> 
+                                <td><s:property value="fecha.toString()"></s:property></td>
+                                <td><s:property value="reserva.usuario.nombre"></s:property></td>
                                     <td>
                                     <s:form action="eliminarPago">
                                         <s:submit value="Eliminar"></s:submit>
-                                        <s:hidden name="dni" value="%{dni}"/>
+                                        <s:hidden name="id" value="%{id}"/>
                                     </s:form>
                                 </td>
                                 <td>
                                     <s:form action="editPago">
                                         <s:submit value="Editar"></s:submit>
-                                        <s:hidden name="dni" value="%{dni}"/>
+                                        <s:hidden name="id" value="%{id}"/>
                                     </s:form>
                                 </td>  
                             </tr>
@@ -67,19 +71,19 @@
                     <table border='1'>
                         <tr>
                             <td>
-                                <s:form action="pagoAlta">
-                                    <s:submit value="Crear Pago"></s:submit>
+                                <s:form action="buscarUsuario">
+                                <td><s:textfield name="dni" value="%{dni}" label="Introduzca Dni a buscar: "></s:textfield></td>
+                                <td><s:submit value="Buscar"></s:submit></td>                                
+                            </s:form> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <s:form action="indexUsuarios">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
                                 </s:form>
-                            </td>                        
-                            <s:form action="buscarPago">
-                                <td><s:textfield name="dni" label="Introduzca Dni a buscar: "></s:textfield>
-                                    <s:hidden name="dni" value="%{dni}"/>
-                                </td>
-                                <td> 
-                                    <s:submit value="Buscar"></s:submit>
-                                    </td>                                
-                            </s:form>                            
-                        </tr>      
+                            </td>
+                        </tr>
                     </table>
                     <%@include file="includes/volver_index.jsp" %>
                 </div>

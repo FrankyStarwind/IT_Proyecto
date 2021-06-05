@@ -31,15 +31,23 @@
                     <h1>Edici&oacute;n de Pago</h1>
                     <s:form action="editPagoF">
                         <s:iterator value="lista">   
-                            <s:textfield name="metodoPago" label="MÉTODO PAGO" value="%{metodoPago}" />
+
+                            <s:select label="TIPO PAGO" 
+                                      headerValue="Seleccione ..."
+                                      list="listaPago" 
+                                      name="metodoPago" 
+                                      />
+
                             <s:textfield name="importe" label="IMPORTE" value="%{importe}" />
                             <s:if test="pagado != 0">
-                                    <td><s:textfield name="pagado" label="PAGADO (Si/No)" value="Sí" /></td>                              
-                                </s:if>
-                                <s:else>
-                                    <s:textfield name="pagadoS" label="PAGADO (Si/No)" value="No" />
-                                </s:else>                               
-                            <s:textfield name="fecha" label="FECHA" value="%{fecha}" />              
+                                <td><s:textfield name="pagadoS" label="PAGADO (Si/No)" value="Sí" /></td>                              
+                            </s:if>
+                            <s:else>
+                                <td><s:textfield name="pagadoS" label="PAGADO (Si/No)" value="No" /></td>
+                            </s:else>                                   
+                            <s:textfield name="fecha" label="FECHA Y HORA (yyyy-MM-dd HH:mm:ss)" value="%{fecha.toString()}" /> 
+
+                            <s:hidden name="id" value="%{id}" />
                             <s:submit value="Guardar" />
                         </s:iterator>
                     </s:form>

@@ -41,10 +41,8 @@ public class reserva extends ActionSupport {
     private Equipo idEquipoUnoFK;
     private String fecha;
     private Date fechaD;
-    
+
     private String nombreActividad;
-    
-    
 
     List<String> listaPago;
 
@@ -274,20 +272,19 @@ public class reserva extends ActionSupport {
 
         idEquipoUnoFK = b.busquedaEquipoPorId(listaReserva.get(0).getEquipoByIdEquipoUnoFk().getId());
         idEquipoDosFK = b.busquedaEquipoPorId(listaReserva.get(0).getEquipoByIdEquipoDosFk().getId());
-      
 
         return SUCCESS;
     }
 
     public String editReservaF() throws Exception {
         listaReserva = a.buscarlistaReserva(id);
-  
-              usuario = a.busquedaUsuarioPorDni((String) session.get("dni")).get(0);
-           ParseFecha(fecha);
+
+        usuario = a.busquedaUsuarioPorDni((String) session.get("dni")).get(0);
+        ParseFecha(fecha);
         idEquipoUnoFK = b.busquedaEquipoPorId(idEq1);
         idEquipoDosFK = b.busquedaEquipoPorId(idEq2);
-              actividad = listaReserva.get(0).getActividad();
-       Reserva re = new Reserva(listaReserva.get(0).getId(),usuario, fechaD, actividad, idEquipoUnoFK, idEquipoDosFK);
+        actividad = listaReserva.get(0).getActividad();
+        Reserva re = new Reserva(listaReserva.get(0).getId(), usuario, fechaD, actividad, idEquipoUnoFK, idEquipoDosFK);
 
         a.editarReserva(re);
 
@@ -295,14 +292,14 @@ public class reserva extends ActionSupport {
 
         return SUCCESS;
     }
-    
-    public String buscarReserva(){
-        
-         actividad = a.buscarACtividadNombre(nombreActividad).get(0);
-        
-        listaReserva = a.buscarActidadReserva(actividad.getId());   
-        
-        nombreActividad="";
-         return SUCCESS;
+
+    public String buscarReserva() {
+
+        actividad = a.buscarACtividadNombre(nombreActividad).get(0);
+
+        listaReserva = a.buscarActidadReserva(actividad.getId());
+
+        nombreActividad = "";
+        return SUCCESS;
     }
 }

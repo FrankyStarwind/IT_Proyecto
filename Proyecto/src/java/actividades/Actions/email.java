@@ -23,7 +23,7 @@ public class email extends ActionSupport {
   
 
     private String password = "rcmkqojnzkncffcb";
-    private String correoUsu = "deportesupoit@gmail.com";
+    private String correoUsu;
     private String asunto;
     private String comentario;
 
@@ -106,9 +106,9 @@ public class email extends ActionSupport {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(correoUsu));
+                    InternetAddress.parse(from));
             message.setSubject(asunto);
-            message.setText(comentario);
+            message.setText(comentario+" de: "+correoUsu);
             Transport.send(message);
         } catch (Exception e) {
             ret = ERROR;

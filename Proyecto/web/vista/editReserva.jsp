@@ -25,7 +25,7 @@
                     <h1>Edici&oacute;n de Reserva</h1>
                     <s:form action="editReservaF">
                         <s:iterator value="listaReserva">                        
-                            <s:textfield name="fecha" label="Fecha y Hora (yyyy-MM-dd HH:mm:ss)" value="%{fecha.toString()}" />
+                            <s:textfield name="fecha" label="FECHA Y HORA (yyyy-MM-dd HH:mm:ss)" value="%{fecha.toString()}" />
                             
                     
                         <s:select label="EQUIPO 1" 

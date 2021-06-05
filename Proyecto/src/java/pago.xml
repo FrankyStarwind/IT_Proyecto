@@ -12,5 +12,23 @@
         <action name="misPagos" class="actividades.Actions.pago" method="visualizarPagosUsuario" >
             <result name="success">/vista/visualizarPagosUsuario.jsp</result>
         </action> 
+        <action name="pagoAlta">
+            <result name="success">/vista/pagoAlta.jsp</result>
+        </action>
+        <action name="altaPago" class="actividades.Actions.pago" method="altaPago" >
+            <result name="success">/vista/indexPagos.jsp</result>
+        </action>        
+        <action name="eliminarPago" class="actividades.Actions.pago" method="eliminarPago">
+            <result name="success">/vista/indexPagos.jsp</result>
+        </action>
+        <action name="editPago" class="actividades.Actions.pago" method="editPago">
+            <result name="success">/vista/editPago.jsp</result>
+        </action>
+        <action name="editPagoF" class="actividades.Actions.pago" method="editPagoF">
+            <result name="success">/vista/indexPagos.jsp</result>
+        </action>
+        <action name="buscarPago" class="actividades.Actions.pago" method="buscarPago">
+            <result name="success">/vista/indexPagos.jsp</result>
+        </action>
     </package>
 </struts>

@@ -32,7 +32,7 @@ public class sede extends ActionSupport {
     private int activo;
 
     private String provincia;
-    
+
     private String nombreSede;
 
     //VARIABLES GENERALES
@@ -149,16 +149,16 @@ public class sede extends ActionSupport {
     }
 
     public String altaSede() throws Exception {
-        Sede se = new Sede(nombre, direccion, cp, tlf, email, provincia,1);
+        Sede se = new Sede(nombre, direccion, cp, tlf, email, provincia, 1);
         a.insertarSede(se);
         return SUCCESS;
     }
 
     public String desactivarSede() throws Exception {
-     Sede sede = a.buscarSede(id).get(0);
-        Sede se = new Sede(sede.getId(), sede.getNombre(), sede.getDireccion(), sede.getCp(),sede.getTlf(),sede.getEmail(),sede.getProvincia(), 0);
+        Sede sede = a.buscarSede(id).get(0);
+        Sede se = new Sede(sede.getId(), sede.getNombre(), sede.getDireccion(), sede.getCp(), sede.getTlf(), sede.getEmail(), sede.getProvincia(), 0);
         a.desactivarSede(se);
-      
+
         listaSede = a.consultaSedes();
 
         return SUCCESS;
@@ -172,7 +172,7 @@ public class sede extends ActionSupport {
     }
 
     public String editSedeF() throws Exception {
-        Sede s = new Sede(id,nombre, direccion, cp, tlf, email, provincia,activo);
+        Sede s = new Sede(id, nombre, direccion, cp, tlf, email, provincia, activo);
         System.out.println(s);
         a.editarSede(s);
 
@@ -180,11 +180,11 @@ public class sede extends ActionSupport {
 
         return SUCCESS;
     }
-    
-    public String buscarSede(){
-        
-       listaSede = a.buscarSedeNombre(nombreSede);
-       nombreSede="";
+
+    public String buscarSede() {
+
+        listaSede = a.buscarSedeNombre(nombreSede);
+        nombreSede = "";
         return SUCCESS;
     }
 }

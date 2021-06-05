@@ -74,21 +74,26 @@
                     </table>
                     <table border='1'>
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 <s:form action="usuarioAlta">
                                     <s:submit value="Crear Usuario"></s:submit>
                                 </s:form>
-                            </td>                        
-                            <s:form action="buscarUsuario">
-                                <td><s:textfield name="dni" label="Introduzca Dni a buscar: "></s:textfield>
-                                    <s:hidden name="dni" value="%{dni}"/>
-                                </td>
-                                <td> 
-                                    <s:submit value="Buscar"></s:submit>
-                                    </td>                                
-                            </s:form>                            
-                        </tr>      
-                    </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <s:form action="buscarUsuario">
+                                <td><s:textfield name="dni" value="%{dni}" label="Introduzca Dni a buscar: "></s:textfield></td>
+                                <td><s:submit value="Buscar"></s:submit></td>                                
+                            </s:form> 
+                            </td>
+                            <td>
+                                <s:form action="indexUsuarios">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>
+                         </table>
                     <%@include file="includes/volver_index.jsp" %>
                 </div>
             </div>

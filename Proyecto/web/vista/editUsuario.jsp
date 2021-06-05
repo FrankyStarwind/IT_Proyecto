@@ -38,7 +38,7 @@
                             <s:textfield name="dni" label="DNI" value="%{dni}" />
                             <s:textfield name="email" label="EMAIL" value="%{email}" />
                             <s:textfield name="tlf" label="TELÉFONO" value="%{tlf}" />
-                            <s:textfield name="adminS" label="ADMINISTRADOR" value="%{admin}" />                         
+                            <s:textfield name="adminS" label="ADMINISTRADOR (Si/No)" value="%{admin}" />                         
                             <s:submit value="Guardar"/>
                         </s:iterator>
                     </s:form>
