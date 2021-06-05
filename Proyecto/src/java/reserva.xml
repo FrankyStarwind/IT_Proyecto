@@ -6,6 +6,7 @@
  
 <struts>
     <package name="reserva" extends="struts-default">   
+        
         <action name="reservaAlta" class="actividades.Actions.reserva" >
             <result name="success">/vista/reservaAlta.jsp</result>
         </action>
@@ -24,8 +25,11 @@
         <action name="editReserva" class="actividades.Actions.reserva" method="editReserva">
             <result name="success">/vista/editReserva.jsp</result>
         </action>
-        <action name="editSedeReserva" class="actividades.Actions.reserva" method="editReservaF">
+        <action name="editReservaF" class="actividades.Actions.reserva" method="editReservaF">
             <result name="success">/vista/indexReserva.jsp</result>
+        </action>
+                <action name="buscarReserva" class="actividades.Actions.reserva" method="buscarReserva">
+            <result name="success">/vista/indexReserva.jsp</result>        
         </action>
     </package>
 </struts>

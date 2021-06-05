@@ -55,10 +55,10 @@ public class Pago  implements java.io.Serializable {
         return this.importe;
     }
     
-    public void setImporte(int importe) {
+    public void setImporte(double importe) {
         this.importe = importe;
     }
-    public double getPagado() {
+    public int getPagado() {
         return this.pagado;
     }
     

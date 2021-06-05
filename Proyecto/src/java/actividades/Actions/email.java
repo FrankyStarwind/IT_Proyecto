@@ -19,49 +19,30 @@ import javax.mail.internet.MimeMessage;
  * @author Laura
  */
 public class email extends ActionSupport {
-   
-    private String correoMio;
-    private String correo = "actividadescontacto@gmail.com";
-    private String clave="actividades1234";
-    private String to = "actividadescontacto@gmail.com";
+
+  
+
+    private String password = "rcmkqojnzkncffcb";
+    private String correoUsu = "deportesupoit@gmail.com";
     private String asunto;
     private String comentario;
 
-    static Properties properties = new Properties();
+    private String from="deportesupoit@gmail.com";
 
-    static {
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.socketFactory.port", "465");
-        properties.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.port", "465");
+    public String getPassword() {
+        return password;
     }
 
-    
-
-    public String getCorreoMio() {
-        return correoMio;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setCorreoMio(String correoMio) {
-        this.correoMio = correoMio;
+    public String getCorreoUsu() {
+        return correoUsu;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setCorreoUsu(String correoUsu) {
+        this.correoUsu = correoUsu;
     }
 
     public String getAsunto() {
@@ -80,12 +61,12 @@ public class email extends ActionSupport {
         this.comentario = comentario;
     }
 
-    public String getTo() {
-        return to;
+    public String getFrom() {
+        return from;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
     public static Properties getProperties() {
@@ -95,24 +76,39 @@ public class email extends ActionSupport {
     public static void setProperties(Properties properties) {
         email.properties = properties;
     }
+
+  
+
+    static Properties properties = new Properties();
+
+    static {
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.ssl.enable", true);
+        properties.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.port", "465");
+    }
+
     public String execute() {
         String ret = SUCCESS;
         try {
             Session session = Session.getInstance(properties,
                     new javax.mail.Authenticator() {
-                        protected PasswordAuthentication
+                protected PasswordAuthentication
                         getPasswordAuthentication() {
-                            return new PasswordAuthentication(correo, clave);
-                        }
-                    }
+                    return new PasswordAuthentication(from, password);
+                }
+            }
             );
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(correo));
+            message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(to));
+                    InternetAddress.parse(correoUsu));
             message.setSubject(asunto);
-            message.setText(comentario +"Correo de contacto: "+ correoMio);
+            message.setText(comentario);
             Transport.send(message);
         } catch (Exception e) {
             ret = ERROR;
@@ -120,5 +116,5 @@ public class email extends ActionSupport {
         }
         return ret;
     }
-    
+
 }

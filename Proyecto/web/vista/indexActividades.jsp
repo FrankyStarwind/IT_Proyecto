@@ -32,18 +32,55 @@
 
                     <table border="2">
                         <tr align="center">
-                            <td>ID</td>
+                        
                             <td>SEDE</td>
-                            <td>NOMBRE</td>                        
+                            <td>NOMBRE</td> 
+                            <td>PRECIO</td>   
+                            <td colspan="2">OPCIONES</td>
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">
-                                <td><s:property value="id"></s:property></td> 
+                         
                                 <td><s:property value="sede.nombre"></s:property></td>
                                 <td><s:property value="nombre"></s:property></td>
-                                
-                                </tr>
+                                <td><s:property value="precio"></s:property></td>
+                                    <td>
+                                    <s:form action="eliminarActividad">
+                                        <s:submit value="Eliminar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+                                <td>
+                                    <s:form action="editActividad">
+                                        <s:submit value="Editar"></s:submit>
+                                        <s:hidden name="id" value="%{id}"/>
+                                    </s:form>
+                                </td>
+                            </tr>
                         </s:iterator>
+                    </table>
+                    
+                    <table border='1' style="text-align: center">
+                        <tr>
+                            <td>
+                                <s:form action="actividadAlta">
+                                    <s:submit value="Crear Actividad"></s:submit>
+                                </s:form>
+                            </td>
+                            <td>
+                                <s:form action="indexActividades">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>     
+                        <tr>
+                            <td>
+                                <s:form action="buscarActividad" >                    
+                                    <s:textfield name="nombreActividad" value="%{nombreActividad}" label="Buscar Actividad"></s:textfield>
+                                    <s:submit value="Buscar Actividad"></s:submit>
+                                </s:form> 
+                            </td>
+                        </tr>
                     </table>
                     <%@include file="includes/volver_index.jsp" %>
                 </div>

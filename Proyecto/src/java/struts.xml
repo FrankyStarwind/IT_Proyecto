@@ -25,15 +25,7 @@
             <result name="success">/vista/home.jsp</result>
         </action>
     </package>
-    <package name="contacto" namespace="/vista" extends="struts-default">
-        <action name="contacto">
-            <result>/vista/contacto.jsp</result>  
-        </action>
-       <action name="enviarContacto" class="actividades.Actions.email">
-            <result name="success">/vista/sucessEmail.jsp</result> 
-             <result name = "error">/vista/errorEmail.jsp</result> 
-        </action> 
-    </package>
+
 
     <include file="login.xml" />    
     <include file="usuario.xml" />
@@ -43,5 +35,6 @@
     <include file="actividades.xml" />
     <include file="jugadores.xml" />
     <include file="equipos.xml" />
+     <include file="contacto.xml" />
     
 </struts>

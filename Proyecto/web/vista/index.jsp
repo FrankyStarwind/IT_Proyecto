@@ -59,6 +59,7 @@
                         <h2>Bienvenido a la Vista de Administrador: <s:property value="#session.administrador" /></h2>
                         <ul>
                             <li><a href="<s:url action="indexPagos"/>">Pagos</a></li>
+                             <li><a href="<s:url action="indexActividades"/>">Actividades</a></li>
                             <li><a href="<s:url action="indexUsuarios"/>">Usuarios</a></li>
                             <li><a href="<s:url action="indexSede"/>">Sedes</a></li>
                             <li><a href="<s:url action="indexJugador"/>">Jugadores</a></li>

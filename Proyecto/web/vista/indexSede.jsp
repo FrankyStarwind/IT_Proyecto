@@ -73,6 +73,19 @@
                                     <s:submit value="Crear Sede"></s:submit>
                                 </s:form>
                             </td>
+                                                                         <td>
+                                <s:form action="indexSede">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>     
+                        <tr>
+                            <td>
+                                <s:form action="buscarSede" >                    
+                                    <s:textfield name="nombreSede" value="%{nombreSede}" label="Buscar Sede"></s:textfield>
+                                    <s:submit value="Buscar Sede"></s:submit>
+                                </s:form> 
+                            </td>
                         </tr>
                     </table>
                     <%@include file="includes/volver_index.jsp" %>

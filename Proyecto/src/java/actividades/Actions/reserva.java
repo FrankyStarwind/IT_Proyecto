@@ -32,26 +32,29 @@ public class reserva extends ActionSupport {
 
     private Integer id;
     private Integer idActividad;
-     private Integer idEq1;
-      private Integer idEq2;
+    private Integer idEq1;
+    private Integer idEq2;
     private Pago pago;
     private Usuario usuario;
     private Actividad actividad;
     private Equipo idEquipoDosFK;
-     private Equipo idEquipoUnoFK;
+    private Equipo idEquipoUnoFK;
     private String fecha;
     private Date fechaD;
     
-List<String> listaPago;
-
+    private String nombreActividad;
     
+    
+
+    List<String> listaPago;
+
     private String tipoPago;
 
     //VARIABLES GENERALES
-    List<Reserva> listaReserva = new ArrayList<>();
-     private  List<Actividad> listaAc;
-      private  List<Equipo> listaEq1;
-       private  List<Equipo> listaEq2;
+    List<Reserva> listaReserva = new ArrayList<Reserva>();
+    private List<Actividad> listaAc;
+    private List<Equipo> listaEq1;
+    private List<Equipo> listaEq2;
 
     Usuario usu = new Usuario();
     Map session = (Map) ActionContext.getContext().get("session");
@@ -59,22 +62,31 @@ List<String> listaPago;
     private actividadesDAO a = new actividadesDAO();
     private equiposDAO b = new equiposDAO();
 
-        public  Date ParseFecha(String fecha) throws java.text.ParseException
-    {
+    public Date ParseFecha(String fecha) throws java.text.ParseException {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-      
+
         fechaD = formato.parse(fecha);
         return fechaD;
     }
-  public String getDefaultPago() {
+
+    public String getDefaultPago() {
         return "PAYPAL";
     }
+
     public List<String> getListaPago() {
         listaPago = new ArrayList<String>();
         listaPago.add("PAYPAL");
         listaPago.add("TARJETA");
         listaPago.add("BIZUM");
         return listaPago;
+    }
+
+    public String getNombreActividad() {
+        return nombreActividad;
+    }
+
+    public void setNombreActividad(String nombreActividad) {
+        this.nombreActividad = nombreActividad;
     }
 
     public void setListaPago(List<String> listaPago) {
@@ -112,7 +124,7 @@ List<String> listaPago;
     public void setIdEq2(Integer idEq2) {
         this.idEq2 = idEq2;
     }
-        
+
     public Map getSession() {
         return session;
     }
@@ -169,8 +181,6 @@ List<String> listaPago;
         this.actividad = actividad;
     }
 
-
-
     public List<Reserva> getListaReserva() {
         return listaReserva;
     }
@@ -188,17 +198,16 @@ List<String> listaPago;
     }
 
     public List<Equipo> getListaEq2() {
-        return listaEq2 =  b.consultaTodosLosEquipos();
+        return listaEq2 = b.consultaTodosLosEquipos();
     }
 
     public void setListaEq2(List<Equipo> listaEq2) {
         this.listaEq2 = listaEq2;
     }
-    
 
     public List<Actividad> getListaAc() {
-     
-        return listaAc=a.consultaActividades();
+
+        return listaAc = a.consultaActividades();
     }
 
     public void setListaAc(List<Actividad> listaAc) {
@@ -220,8 +229,6 @@ List<String> listaPago;
     public void setFechaD(Date fechaD) {
         this.fechaD = fechaD;
     }
-    
-    
 
     public Usuario getUsu() {
         return usu;
@@ -233,7 +240,7 @@ List<String> listaPago;
 
     public String listaReserva() {
         listaReserva = a.consultalistaReserva();
-      
+
         return SUCCESS;
     }
 
@@ -241,18 +248,20 @@ List<String> listaPago;
         usuario = a.busquedaUsuarioPorDni((String) session.get("dni")).get(0);
         ParseFecha(fecha);
         actividad = a.buscarACtividadId(idActividad).get(0);
-        idEquipoUnoFK= b.busquedaEquipoPorId(idEq1);
-        idEquipoDosFK= b.busquedaEquipoPorId(idEq2);
-        Reserva re = new Reserva( usuario, fechaD, actividad,idEquipoUnoFK,idEquipoDosFK);
+        idEquipoUnoFK = b.busquedaEquipoPorId(idEq1);
+        idEquipoDosFK = b.busquedaEquipoPorId(idEq2);
+        Reserva re = new Reserva(usuario, fechaD, actividad, idEquipoUnoFK, idEquipoDosFK);
         a.insertarReserva(re);
-        
+
         Pago p = new Pago(tipoPago, actividad.getPrecio(), 1, new Date(), re);
+        a.insertarPago(p);
         listaReserva();
         return SUCCESS;
     }
 
     public String eliminarReserva() throws Exception {
-
+        pago = a.busquedaPagoPorReserva(id).get(0);
+        a.eliminarPago(pago.getId());
         a.eliminarReserva(id);
         listaReserva = a.consultalistaReserva();
 
@@ -263,16 +272,37 @@ List<String> listaPago;
 
         listaReserva = a.buscarlistaReserva(id);
 
+        idEquipoUnoFK = b.busquedaEquipoPorId(listaReserva.get(0).getEquipoByIdEquipoUnoFk().getId());
+        idEquipoDosFK = b.busquedaEquipoPorId(listaReserva.get(0).getEquipoByIdEquipoDosFk().getId());
+      
+
         return SUCCESS;
     }
 
     public String editReservaF() throws Exception {
-        Reserva r = new Reserva(id, usuario, fechaD, actividad);
+        listaReserva = a.buscarlistaReserva(id);
+  
+              usuario = a.busquedaUsuarioPorDni((String) session.get("dni")).get(0);
+           ParseFecha(fecha);
+        idEquipoUnoFK = b.busquedaEquipoPorId(idEq1);
+        idEquipoDosFK = b.busquedaEquipoPorId(idEq2);
+              actividad = listaReserva.get(0).getActividad();
+       Reserva re = new Reserva(listaReserva.get(0).getId(),usuario, fechaD, actividad, idEquipoUnoFK, idEquipoDosFK);
 
-        a.editarReserva(r);
+        a.editarReserva(re);
 
         listaReserva = a.consultalistaReserva();
 
         return SUCCESS;
+    }
+    
+    public String buscarReserva(){
+        
+         actividad = a.buscarACtividadNombre(nombreActividad).get(0);
+        
+        listaReserva = a.buscarActidadReserva(actividad.getId());   
+        
+        nombreActividad="";
+         return SUCCESS;
     }
 }

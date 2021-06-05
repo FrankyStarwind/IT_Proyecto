@@ -31,6 +31,8 @@ public class sede extends ActionSupport {
     private int cp;
 
     private String provincia;
+    
+    private String nombreSede;
 
     //VARIABLES GENERALES
     List<Sede> listaSede = new ArrayList<>();
@@ -40,6 +42,14 @@ public class sede extends ActionSupport {
     Map session = (Map) ActionContext.getContext().get("session");
 
     private actividadesDAO a = new actividadesDAO();
+
+    public String getNombreSede() {
+        return nombreSede;
+    }
+
+    public void setNombreSede(String nombreSede) {
+        this.nombreSede = nombreSede;
+    }
 
     public String getNombre() {
         return nombre;
@@ -157,6 +167,13 @@ public class sede extends ActionSupport {
 
         listaSede = a.consultaSedes();
 
+        return SUCCESS;
+    }
+    
+    public String buscarSede(){
+        
+       listaSede = a.buscarSedeNombre(nombreSede);
+       nombreSede="";
         return SUCCESS;
     }
 }

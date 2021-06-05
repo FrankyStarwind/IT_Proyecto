@@ -26,5 +26,8 @@
         <action name="editSedeF" class="actividades.Actions.sede" method="editSedeF">
             <result name="success">/vista/indexSede.jsp</result>
         </action>
+         <action name="buscarSede" class="actividades.Actions.sede" method="buscarSede">
+            <result name="success">/vista/indexSede.jsp</result>        
+        </action>
     </package>
 </struts>

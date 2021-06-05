@@ -153,11 +153,17 @@ public class actividadesDAO {
     }
 
     public void eliminarReserva(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1.beginTransaction();
+
+        s1.createSQLQuery("delete from Reserva where id=" + id + "").executeUpdate();
+
+        s1.getTransaction().commit();
+
     }
 
     public List<Reserva> buscarlistaReserva(Integer id) {
-                       s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
         Query q1 = s1.createQuery("From Reserva where id = " + id + "");
         List<Reserva> listR = q1.list();
@@ -166,25 +172,119 @@ public class actividadesDAO {
     }
 
     public void editarReserva(Reserva r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(r);
+
+        s1.getTransaction().commit();
     }
 
     public List<Actividad> consultaActividades() {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("from Actividad");
+        Query q1 = s1.createQuery("from Actividad where activo=1");
         List<Actividad> lista = (List<Actividad>) q1.list();
         tx.commit();
         return lista;
     }
 
     public List<Actividad> buscarACtividadId(Integer id) {
-                       s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = s1.beginTransaction();
-        Query q1 = s1.createQuery("From Actividad where id = " + id + "");
+        Query q1 = s1.createQuery("From Actividad where id = " + id + " and activo=1");
         List<Actividad> listActivi = q1.list();
         tx.commit();
         return listActivi;
+    }
+
+    public List<Pago> busquedaPagoPorReserva(Integer id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Pago where idReservaFk = " + id + "");
+        List<Pago> listaP = q1.list();
+        tx.commit();
+        return listaP;
+    }
+
+    public void insertarPago(Pago p) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.save(p);
+
+        s1.getTransaction().commit();
+    }
+
+    public void eliminarPago(Integer id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        s1.beginTransaction();
+
+        s1.createSQLQuery("delete from Pago where id=" + id + "").executeUpdate();
+
+        s1.getTransaction().commit();
+    }
+
+    public List<Reserva> buscarActidadReserva(int id) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Reserva where idActividadFk = " + id + "");
+        List<Reserva> list = q1.list();
+        tx.commit();
+        return list;
+    }
+
+    public List<Actividad> buscarACtividadNombre(String nombreActividad) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Actividad where nombre = '" + nombreActividad + "' and activo=1");
+        List<Actividad> listActivi = q1.list();
+        tx.commit();
+        return listActivi;
+    }
+
+    public List<Sede> buscarSedeNombre(String nombre) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Sede where nombre = '" + nombre + "'");
+        List<Sede> list = q1.list();
+        tx.commit();
+        return list;
+    }
+
+    public void insertarActividad(Actividad ac) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.save(ac);
+
+        s1.getTransaction().commit();
+    }
+
+    public void desactivarActividad(Actividad ac) {
+    s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(ac);
+
+        s1.getTransaction().commit();
+
+    }
+
+
+
+    public void editarActividad(Actividad ac) {
+            s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(ac);
+
+        s1.getTransaction().commit();
     }
 
 

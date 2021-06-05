@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +43,8 @@
                         <s:iterator value="listaReserva">
                             <tr align="center">
                                 <td><s:property value="actividad.nombre"></s:property></td>
-                                <td><s:property value="fecha"></s:property></td>
+                                
+                                    <td><s:property value="fecha.toString()"  /></td>
 
 
                                     <td>
@@ -67,7 +70,19 @@
                                     <s:submit value="Crear Reserva"></s:submit>
                                 </s:form>
                             </td>
-
+                                                        <td>
+                                <s:form action="indexReserva">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
+                                </s:form>
+                            </td>
+                        </tr>     
+                        <tr>
+                            <td>
+                                <s:form action="buscarReserva" >                    
+                                    <s:textfield name="nombreActividad" value="%{nombreActividad}" label="Buscar por Actividad"></s:textfield>
+                                    <s:submit value="Buscar Actividad"></s:submit>
+                                </s:form> 
+                            </td>
                         </tr>
 
                     </table>

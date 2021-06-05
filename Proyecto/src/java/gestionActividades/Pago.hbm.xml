@@ -17,7 +17,7 @@
                 <many-to-one name="reserva" class="gestionActividades.Reserva" fetch="select" lazy="false">
             <column name="idReservaFK" not-null="true" />
         </many-to-one>
-        <property name="pagado" type="double">
+        <property name="pagado" type="int">
             <column name="pagado" precision="22" scale="0" not-null="true" />
         </property>
         <property name="fecha" type="timestamp">

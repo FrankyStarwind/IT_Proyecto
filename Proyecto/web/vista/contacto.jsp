@@ -30,7 +30,7 @@
                     <!-- Section --> 
                     <h1>Cotacto</h1>
                     <s:form action="enviarContacto">
-                        <s:textfield name="correoMio" label="CORREO" />
+                        <s:textfield name="correoDestino" label="CORREO" />
                         <s:textfield name="asunto" label="ASUNTO" />
                         <s:textarea name="comentario" label="COMENTARIO"/>
                         <s:submit value="Enviar"></s:submit>
