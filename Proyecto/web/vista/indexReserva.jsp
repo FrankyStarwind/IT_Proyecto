@@ -35,6 +35,8 @@
                     <table border="2">
                         <tr align="center">
                             <td>ACTIVIDAD</td>
+                              <td>PRECIO</td>
+                                  <td>SEDE</td>
                             <td>FECHA</td>
 
                             <td colspan="2">OPCIONES</td>
@@ -43,6 +45,8 @@
                         <s:iterator value="listaReserva">
                             <tr align="center">
                                 <td><s:property value="actividad.nombre"></s:property></td>
+                                <td><s:property value="actividad.precio"></s:property></td>
+                                <td><s:property value="actividad.sede.nombre"></s:property></td>
                                 
                                     <td><s:property value="fecha.toString()"  /></td>
 

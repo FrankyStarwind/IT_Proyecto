@@ -40,8 +40,9 @@
 
                         <s:select label="ACTIVIDADES" 
                                   headerValue="Seleccione ..." 
-                                  name="idActividad"   listKey="id" listValue="nombre" 
+                                  name="idActividad"   listKey="id" listValue="nombre+': '+precio+' €'" 
                                   list="listaAc" />
+                        
 
                         <s:select label="EQUIPO 1" 
                                   headerValue="Seleccione ..." 

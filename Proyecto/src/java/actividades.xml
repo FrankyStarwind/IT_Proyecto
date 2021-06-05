@@ -32,7 +32,7 @@
         <action name="buscarActividad" class="actividades.Actions.actividades" method="buscarActividad">
             <result name="success">/vista/indexActividades.jsp</result>        
         </action>
-                <action name="mostrarActividades" class="actividades.Actions.actividades" method="listaActividades">
+                <action name="mostrarActividades" class="actividades.Actions.actividades" method="listaActividadesGeneral">
             <result name="success">/vista/indexActividad.jsp</result>        
         </action>
         

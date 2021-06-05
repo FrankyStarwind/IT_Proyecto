@@ -35,7 +35,8 @@
                         
                             <td>SEDE</td>
                             <td>NOMBRE</td> 
-                            <td>PRECIO</td>   
+                            <td>PRECIO</td> 
+                                 <td>ACTIVO</td>   
                             <td colspan="2">OPCIONES</td>
                         </tr>   
                         <s:iterator value="lista">
@@ -44,6 +45,7 @@
                                 <td><s:property value="sede.nombre"></s:property></td>
                                 <td><s:property value="nombre"></s:property></td>
                                 <td><s:property value="precio"></s:property></td>
+                                <td><s:property value="activo"></s:property></td>
                                     <td>
                                     <s:form action="eliminarActividad">
                                         <s:submit value="Eliminar"></s:submit>

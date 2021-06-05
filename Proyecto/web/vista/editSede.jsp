@@ -31,6 +31,7 @@
                             <s:textfield name="cp" label="CP" value="%{cp}"/>
                             <s:textfield name="email" label="EMAIL" value="%{email}"/>
                             <s:textfield name="provincia" label="PROVINCIA" value="%{provincia}"/>
+                              <s:textfield name="activo" label="ACTIVO" value="%{activo}"/>
                             <s:hidden name="id" value="%{id}" />
                             <s:submit value="Guardar"/>
                         </s:iterator>

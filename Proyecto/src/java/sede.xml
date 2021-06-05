@@ -17,7 +17,7 @@
             <result name="success">/vista/indexSede.jsp</result>
         </action>
         
-        <action name="eliminarSede" class="actividades.Actions.sede" method="eliminarSede">
+        <action name="eliminarSede" class="actividades.Actions.sede" method="desactivarSede">
             <result name="success">/vista/indexSede.jsp</result>
         </action>
         <action name="editSede" class="actividades.Actions.sede" method="editSede">
