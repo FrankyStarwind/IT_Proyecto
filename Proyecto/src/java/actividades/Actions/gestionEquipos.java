@@ -19,8 +19,9 @@ import java.util.List;
  */
 public class gestionEquipos extends ActionSupport {
 
-    private int idEquipo;
+    private int id;
     private String nombre;
+    private int activo;
 
     private int idEquipoFK;
 
@@ -30,13 +31,23 @@ public class gestionEquipos extends ActionSupport {
     public gestionEquipos() {
     }
 
-    public int getIdEquipo() {
-        return idEquipo;
+    public int getActivo() {
+        return activo;
     }
 
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setActivo(int activo) {
+        this.activo = activo;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 
     public String getNombre() {
         return nombre;
@@ -77,16 +88,45 @@ public class gestionEquipos extends ActionSupport {
         System.out.println("Funciona");
         return SUCCESS;
     }
-    public String altaEquipo() throws Exception{
-        Equipo equipo = new Equipo(nombre);
+    public String altaEquipoF() throws Exception{
+        Equipo equipo = new Equipo(nombre,1);
         equiposDAO.crearEquipo(equipo);
+           listaEquipos = equiposDAO.consultaTodosLosEquipos();
         return SUCCESS;
     }
 
-    public String eliminarJugador() throws Exception {
-        equiposDAO.eliminarEquipo(idEquipo);
+    public String desactivarEquipo() throws Exception {
+                Equipo eq = equiposDAO.busquedaEquipoPorId(id);
+        Equipo equipo = new Equipo(eq.getId(),eq.getNombre(),0);
+        
+        equiposDAO.desactivarEquipo(equipo);
+   
+
+
         listaEquipos = equiposDAO.consultaTodosLosEquipos();
 
+        return SUCCESS;
+    }
+    
+    public String editEquipo() throws Exception {
+
+        listaEquipos = equiposDAO.busquedaUsuarioPorID(id);
+
+        return SUCCESS;
+    }
+    
+    public String editEquipoF() throws Exception {
+                    
+        Equipo equipo = new Equipo(id,nombre,activo);
+        equiposDAO.editarEquipo(equipo);
+
+        listaEquipos = equiposDAO.consultaTodosLosEquipos();
+        return SUCCESS;
+    }
+    
+    public String buscarEquipo(){
+        
+       listaEquipos = equiposDAO.buscarEquipoNombre(nombre);
         return SUCCESS;
     }
 }

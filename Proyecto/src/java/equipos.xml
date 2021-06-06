@@ -9,16 +9,22 @@
             <result name="success">/vista/equipos/gestionarEquipos.jsp</result>
         </action>
         
-        <action name="eliminarEquipo" class="actividades.Actions.gestionEquipos" method="eliminarEquipo">
+        <action name="eliminarEquipo" class="actividades.Actions.gestionEquipos" method="desactivarEquipo">
             <result name="success">/vista/equipos/gestionarEquipos.jsp</result>
         </action>
-        <action name="editEquipo" class="actividades.Actions.gestionEquipos" >
+        <action name="editEquipo" class="actividades.Actions.gestionEquipos" method="editEquipo">
+            <result name="success">/vista/equipos/editEquipo.jsp</result>
+        </action>
+        <action name="editEquipoF" class="actividades.Actions.gestionEquipos" method="editEquipoF">
+            <result name="success">/vista/equipos/gestionarEquipos.jsp</result>
+        </action>
+             <action name="altaEquipo" class="actividades.Actions.gestionEquipos" >
             <result name="success">/vista/equipos/equipoAlta.jsp</result>
         </action>
-        <action name="altaEquipo" class="actividades.Actions.gestionEquipos" >
-            <result name="success">/vista/equipos/equipoAlta.jsp</result>
+        <action name="altaEquipoF" class="actividades.Actions.gestionEquipos" method="altaEquipoF">
+            <result name="success">/vista/equipos/gestionarEquipos.jsp</result>
         </action>
-        <action name="altaEquipoF" class="actividades.Actions.gestionEquipos" method="altaEquipo">
+          <action name="buscarEquipo" class="actividades.Actions.gestionEquipos" method="buscarEquipo">
             <result name="success">/vista/equipos/gestionarEquipos.jsp</result>
         </action>
     </package>

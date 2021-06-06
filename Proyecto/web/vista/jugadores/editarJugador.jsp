@@ -33,9 +33,16 @@
                             <s:textfield name="nombre" label="Nombre" value="%{nombre}" />
                             <s:textfield name="edad" label="Edad" value="%{edad}" />
                             <s:textfield name="dorsal" label="Dorsal" value="%{dorsal}" />
-                            <%--<s:textfield name="equipo.nombre" label="Equipo" value="%{equipo.nombre}" />--%>
+                            <s:select label="Equipo" 
+                                  headerValue="Seleccione ..." 
+                                  name="idEquipo"   listKey="id" listValue="nombre" 
+                                  list="listaEquipos" />
                             <s:submit value="Guardar"/>
+                           
+                            
                         </s:iterator>
+                        
+                        
                     </s:form>
                     <%@include file="../includes/volver_index.jsp" %>
                 </div>

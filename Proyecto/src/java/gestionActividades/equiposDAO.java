@@ -61,6 +61,14 @@ public class equiposDAO {
         tx.commit();
         return equipo;
     }
+    public List<Equipo> busquedaUsuarioPorDni(String dni) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Equipo where id='" + dni + "'");
+        List<Equipo> lista = (List<Equipo>) q1.list();
+        tx.commit();
+        return lista;
+    }
 
     public Equipo busquedaEquipoPorNombre(int nombre) {
         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -77,11 +85,9 @@ public class equiposDAO {
      * @param id
      */
     public void eliminarEquipo(int id){
-        
-        s1= HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx= s1.beginTransaction();
-        s1.createSQLQuery("delete from Equipo where id='" + id + "'").executeUpdate();
-        
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        s1.createSQLQuery("delete from Equipo where id=" + id + "").executeUpdate();
         tx.commit();
     }
     
@@ -110,5 +116,46 @@ public class equiposDAO {
         s1.save(equipo);
 
         s1.getTransaction().commit();
+    }
+
+    public List<Equipo> busquedaUsuarioPorID(int id) {
+               s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Equipo where id = " + id + "");
+        List<Equipo> list = q1.list();
+        tx.commit();
+        return list;
+    }
+
+    public void editarEquipo(Equipo eq) {
+    
+         s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(eq);
+
+        s1.getTransaction().commit();
+    }
+
+    public void desactivarEquipo(Equipo equipo) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        s1.beginTransaction();
+
+        s1.update(equipo);
+
+        s1.getTransaction().commit();
+
+    }
+
+    public List<Equipo> buscarEquipoNombre(String nombre) {
+        s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("From Equipo where nombre = '" + nombre + "' and activo=1");
+        List<Equipo> list = q1.list();
+        tx.commit();
+        return list;
+
     }
 }

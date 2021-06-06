@@ -31,15 +31,30 @@
                     <tr align="center">
                         <td>ID</td>
                         <td>NOMBRE</td>
-
+                             <td>ACTIVO</td>
+                        
+                        <td colspan="2">OPCIONES</td>
+                        
                     </tr>   
                     <s:iterator value="listaEquipos">
                         <tr align="center">
 
                             <td><s:property value="id"></s:property></td>
                             <td><s:property value="nombre"></s:property></td>
-
-                            </tr>
+                               <td><s:property value="activo"></s:property></td>
+                                <td>
+                                <s:form action="eliminarEquipo">
+                                    <s:submit value="Eliminar"></s:submit>
+                                    <s:hidden name="id" value="%{id}"/>
+                                </s:form>
+                            </td>
+                            <td>
+                                <s:form action="editEquipo">
+                                    <s:submit value="Editar"></s:submit>
+                                    <s:hidden name="id" value="%{id}"/>
+                                </s:form>
+                            </td> 
+                        </tr>
                     </s:iterator>
                 </table>
                 <table border='1' style="text-align: center">
@@ -50,6 +65,14 @@
                             </s:form>
                         </td>
                     </tr>
+                     <tr>
+                            <td>
+                                <s:form action="buscarEquipo" >                    
+                                    <s:textfield name="nombre" value="%{nombre}" label="Buscar Equipo"></s:textfield>
+                                    <s:submit value="Buscar Equipo"></s:submit>
+                                </s:form> 
+                            </td>
+                        </tr>
                 </table>
                 <%@include file="/vista/includes/volver_index.jsp" %>
             </div>

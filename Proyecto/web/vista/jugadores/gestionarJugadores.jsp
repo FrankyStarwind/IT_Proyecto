@@ -72,9 +72,18 @@
                                 </s:form>
                             </td>
                         </tr>
+                        
+                        <tr>
+                            <td>
+                                <s:form action="buscarJugador" >                    
+                                    <s:textfield name="nombre" value="%{nombre}" label="Buscar por nombre"></s:textfield>
+                                    <s:submit value="Buscar Jugador"></s:submit>
+                                </s:form> 
+                            </td>
+                        </tr>
                     </table>
                 <%@include file="/vista/includes/volver_index.jsp" %>
-
+                
             </div>
         </div>
 

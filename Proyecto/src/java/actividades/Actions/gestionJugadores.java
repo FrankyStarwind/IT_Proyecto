@@ -24,11 +24,12 @@ public class gestionJugadores extends ActionSupport {
     private int edad;
     private int dorsal;
     private int idEquipoFK;
-    private Equipo eq;
+    private Equipo equipo;
     
     private jugadoresDAO jugadoresDAO = new jugadoresDAO();
     private List<Jugador> listaJugadores = new ArrayList<>();
-
+    private List<Equipo> listaEquipos = new ArrayList<>();
+    
     private equiposDAO equipoDAO = new equiposDAO();
 
     public gestionJugadores() {
@@ -66,6 +67,30 @@ public class gestionJugadores extends ActionSupport {
         this.edad = edad;
     }
 
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    public List<Equipo> getListaEquipos() {
+        return listaEquipos;
+    }
+
+    public void setListaEquipos(List<Equipo> listaEquipos) {
+        this.listaEquipos = listaEquipos;
+    }
+
+    public equiposDAO getEquipoDAO() {
+        return equipoDAO;
+    }
+
+    public void setEquipoDAO(equiposDAO equipoDAO) {
+        this.equipoDAO = equipoDAO;
+    }
+
     public int getDorsal() {
         return dorsal;
     }
@@ -93,10 +118,7 @@ public class gestionJugadores extends ActionSupport {
     @Override
     public String execute() throws Exception {
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
-        for(Jugador k: listaJugadores){
-            System.out.println(k.getEquipo().getId());
-        }
-        System.out.println("Funciona");
+        
         return SUCCESS;
     }
 
@@ -122,6 +144,12 @@ public class gestionJugadores extends ActionSupport {
         System.out.println("La id es "+id);
         return SUCCESS;
     }
+//    public String editActividad() throws Exception {
+//
+//        lista = a.buscarACtividadId(id);
+//
+//        return SUCCESS;
+//    }
     public String editarJugadorF() throws Exception{
         Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
 
@@ -131,6 +159,22 @@ public class gestionJugadores extends ActionSupport {
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
         return SUCCESS;
     }
+    public String altaJugador() throws Exception {
+        
+        equipo= equipoDAO.busquedaEquipoPorId(idEquipoFK);
+        
 
+        Jugador p = new Jugador(equipo,nombre,edad,dorsal);
+        jugadoresDAO.insertarJugador(p);
+      
+        execute();
+        return SUCCESS;
+    }
+    public String buscarJugador(){
+        
+       listaJugadores = jugadoresDAO.busquedaJugadorPorNombreDorsal(nombre);
+       nombre="";
+        return SUCCESS;
+    }
   
 }

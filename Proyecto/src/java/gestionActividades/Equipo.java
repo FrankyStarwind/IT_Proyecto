@@ -13,6 +13,7 @@ public class Equipo  implements java.io.Serializable {
 
      private Integer id;
      private String nombre;
+     private int activo;
    
 
 
@@ -20,10 +21,27 @@ public class Equipo  implements java.io.Serializable {
     }
 
 	
-    public Equipo( String nombre) {
+    public Equipo( String nombre, int activo) {
       
         this.nombre = nombre;
+        this.activo=activo;
     }
+
+    public Equipo(Integer id, String nombre, int activo) {
+        
+        this.id=id;
+        this.nombre=nombre;
+        this.activo=activo;
+    }
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
+
 
    
     public Integer getId() {
