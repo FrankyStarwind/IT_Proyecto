@@ -55,7 +55,7 @@
                                 <s:form action="editarJugador">
                                     <s:submit value="Editar"></s:submit>
                                     <s:hidden name="id" value="%{id}"/>
-                                    <%--<s:hidden name="idEquipo" value="%{i}"/>--%>
+                                 
                                     
                                 </s:form>
                                  
@@ -69,6 +69,11 @@
                             <td>
                                 <s:form action="altaJugador">
                                     <s:submit value="Crear Jugador"></s:submit>
+                                </s:form>
+                            </td>
+                                  <td>
+                                <s:form action="indexJugador">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
                                 </s:form>
                             </td>
                         </tr>

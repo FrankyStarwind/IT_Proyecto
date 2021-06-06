@@ -24,6 +24,14 @@ public class Jugador  implements java.io.Serializable {
        this.edad = edad;
        this.dorsal = dorsal;
     }
+
+    public Jugador(int id, Equipo p, String nombre, int edad, int dorsal) {
+ this.equipo = p;
+       this.nombre = nombre;
+       this.edad = edad;
+       this.dorsal = dorsal;
+       this.id=id;
+    }
    
     public Integer getId() {
         return this.id;

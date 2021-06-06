@@ -37,7 +37,7 @@
                             <td>PAGADO</td> 
                             <td>FECHA</td>  
                             <td>USUARIO</td>
-                            <td colspan="2">OPCIONES</td>
+                           
                         </tr>   
                         <s:iterator value="lista">
                             <tr align="center">

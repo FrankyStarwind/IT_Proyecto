@@ -8,6 +8,7 @@ package actividades.Actions;
 import com.opensymphony.xwork2.ActionSupport;
 import gestionActividades.Equipo;
 import gestionActividades.Jugador;
+import gestionActividades.actividadesDAO;
 import gestionActividades.equiposDAO;
 import gestionActividades.jugadoresDAO;
 import java.util.ArrayList;
@@ -25,12 +26,16 @@ public class gestionJugadores extends ActionSupport {
     private int dorsal;
     private int idEquipoFK;
     private Equipo equipo;
+        private Integer idEq1;
     
+          private List<Equipo> listaEq1;
     private jugadoresDAO jugadoresDAO = new jugadoresDAO();
     private List<Jugador> listaJugadores = new ArrayList<>();
     private List<Equipo> listaEquipos = new ArrayList<>();
     
     private equiposDAO equipoDAO = new equiposDAO();
+    
+
 
     public gestionJugadores() {
     }
@@ -43,8 +48,24 @@ public class gestionJugadores extends ActionSupport {
         this.listaJugadores = listaJugadores;
     }
 
+    public List<Equipo> getListaEq1() {
+        return listaEq1= equipoDAO.consultaTodosLosEquipos();
+    }
+
+    public void setListaEq1(List<Equipo> listaEq1) {
+        this.listaEq1 = listaEq1;
+    }
+
     public int getId() {
         return id;
+    }
+
+    public Integer getIdEq1() {
+        return idEq1;
+    }
+
+    public void setIdEq1(Integer idEq1) {
+        this.idEq1 = idEq1;
     }
 
     public void setId(int id) {
@@ -140,20 +161,16 @@ public class gestionJugadores extends ActionSupport {
     
     public String editarJugador() throws Exception {
         
-        jugadoresDAO.busquedaJugadorPorId(id);
-        System.out.println("La id es "+id);
+    listaJugadores =  jugadoresDAO.busquedaJugadorPorId(id);
+      
         return SUCCESS;
     }
-//    public String editActividad() throws Exception {
-//
-//        lista = a.buscarACtividadId(id);
-//
-//        return SUCCESS;
-//    }
-    public String editarJugadorF() throws Exception{
-        Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEquipoFK);
 
-        Jugador j = new Jugador(p, nombre, edad, dorsal);
+    public String editarJugadorF() throws Exception{
+        
+        Equipo p = (Equipo) equipoDAO.busquedaEquipoPorId(idEq1);
+
+        Jugador j = new Jugador(id,p, nombre, edad, dorsal);
         jugadoresDAO.editarJugador(j);
         
         listaJugadores = jugadoresDAO.consultaTodosJugadores();
@@ -161,7 +178,7 @@ public class gestionJugadores extends ActionSupport {
     }
     public String altaJugador() throws Exception {
         
-        equipo= equipoDAO.busquedaEquipoPorId(idEquipoFK);
+        equipo= equipoDAO.busquedaEquipoPorId(idEq1);
         
 
         Jugador p = new Jugador(equipo,nombre,edad,dorsal);

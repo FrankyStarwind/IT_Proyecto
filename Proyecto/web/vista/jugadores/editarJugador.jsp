@@ -33,10 +33,15 @@
                             <s:textfield name="nombre" label="Nombre" value="%{nombre}" />
                             <s:textfield name="edad" label="Edad" value="%{edad}" />
                             <s:textfield name="dorsal" label="Dorsal" value="%{dorsal}" />
-                            <s:select label="Equipo" 
+                            
+                                 <s:select label="EQUIPO" 
                                   headerValue="Seleccione ..." 
-                                  name="idEquipo"   listKey="id" listValue="nombre" 
-                                  list="listaEquipos" />
+                                  name="idEq1"   listKey="id" listValue="nombre" value="idEquipoFK.id"
+                                  list="listaEq1" />
+                            
+                            
+                            
+                            <s:hidden name="id" value="%{id}" />
                             <s:submit value="Guardar"/>
                            
                             

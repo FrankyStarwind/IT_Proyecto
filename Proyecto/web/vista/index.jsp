@@ -44,9 +44,7 @@
                             <li><a href="<s:url action="misDatos"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>
                                    </s:url>">Datos personales</a></li>
-                            <li><a href="<s:url action="indexJugadores"><s:param name="dni" value="%{#session.dni}">
-                                       </s:param>
-                                   </s:url>">Mostrar jugadores</a></li>
+ 
                             
                             <li><a href="<s:url action="inicio"><s:param name="dni" value="%{#session.dni}">
                                        </s:param>

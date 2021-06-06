@@ -64,6 +64,11 @@
                                 <s:submit value="Crear Equipo"></s:submit>
                             </s:form>
                         </td>
+                                  <td>
+                                <s:form action="indexEquipo">
+                                    <s:submit value="Restablecer Búsqueda"></s:submit>
+                                </s:form>
+                            </td>
                     </tr>
                      <tr>
                             <td>

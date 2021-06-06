@@ -15,6 +15,9 @@
         <action name="editarJugador" class="actividades.Actions.gestionJugadores" method="editarJugador">
             <result name="success">/vista/jugadores/editarJugador.jsp</result>
         </action>
+          <action name="editarJugadorF" class="actividades.Actions.gestionJugadores" method="editarJugadorF">
+            <result name="success">/vista/jugadores/gestionarJugadores.jsp</result>
+        </action>
         <action name="altaJugador" class="actividades.Actions.gestionJugadores">
             <result name="success">/vista/jugadores/altaJugador.jsp</result>
         </action>
