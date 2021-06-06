@@ -188,7 +188,7 @@ public class reserva extends ActionSupport {
     }
 
     public List<Equipo> getListaEq1() {
-        return listaEq1 = b.consultaTodosLosEquipos();
+        return listaEq1 = b.consultaTodosLosEquiposActivos();
     }
 
     public void setListaEq1(List<Equipo> listaEq1) {
@@ -196,7 +196,7 @@ public class reserva extends ActionSupport {
     }
 
     public List<Equipo> getListaEq2() {
-        return listaEq2 = b.consultaTodosLosEquipos();
+        return listaEq2 = b.consultaTodosLosEquiposActivos();
     }
 
     public void setListaEq2(List<Equipo> listaEq2) {

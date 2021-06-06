@@ -158,4 +158,13 @@ public class equiposDAO {
         return list;
 
     }
+
+    public List<Equipo> consultaTodosLosEquiposActivos() {
+ s1 = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = s1.beginTransaction();
+        Query q1 = s1.createQuery("from Equipo where activo=1");
+        List<Equipo> lista = (List<Equipo>) q1.list();
+        tx.commit();
+        return lista;
+    }
 }
