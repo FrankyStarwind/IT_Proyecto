@@ -28,7 +28,7 @@
                     <%@include file="includes/include_header.jsp" %>                  
 
                     <!-- Section -->
-                    <h1>Alta Sede</h1>
+                    <h1>Alta Actividad</h1>
                     <s:form action="altaActividad">
                         <s:textfield name="nombre" label="NOMBRE" />
                         <s:textfield name="precio" label="PRECIO" />
